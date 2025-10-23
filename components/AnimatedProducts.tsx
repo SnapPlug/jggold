@@ -13,7 +13,7 @@ export default function AnimatedProducts() {
           </h2>
           <div className="text-[1rem] leading-[1.2]" style={{ color: '#112211' }}>
             <p>커피를 포기하지 않아도 되는 방법이 여기 있습니다.</p>
-            <p>당신의 하루를 부드럽게 마술한잔을 만나보세요.</p>
+            <p>당신의 하루를 부드럽게 바꿔줄 한 잔을 만나보세요.</p>
           </div>
         </div>
         
