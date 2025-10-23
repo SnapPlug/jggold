@@ -8,8 +8,9 @@ export default function AnimatedPartners() {
       <div className="w-full px-[30px]">
         <h2 className="text-[1.9rem] leading-[0.9] font-bold text-white mb-[30px]">Partners</h2>
         <div className="text-white text-[1rem] leading-[1.2]">
-          <p>우리는 서로의 철학과 진심으로 연결되어</p>
-          <p>세상에 '건강한 커피의 또 다른 가능상'을 전합니다.</p>
+          <p>이 여정에 뜻을 함께한 파트너들이 있습니다.</p>
+          <p>우리는 서로의 철학과 진심으로 연결되어,</p>
+          <p>세상에 '건강한 커피의 또 다른 가능성'을 전합니다.</p>
         </div>
       </div>
       
