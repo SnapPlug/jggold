@@ -9,7 +9,7 @@ export default function AnimatedService() {
       <div className="flex flex-col">
         {/* 첫 번째 이미지 */}
         <motion.div 
-          className="relative w-full h-[80vh] max-w-[1440px] mx-auto"
+          className="relative w-full h-[80vh] max-w-full mx-auto"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -33,7 +33,7 @@ export default function AnimatedService() {
         
         {/* 두 번째 이미지 */}
         <motion.div 
-          className="relative w-full h-[80vh] max-w-[1440px] mx-auto"
+          className="relative w-full h-[80vh] max-w-full mx-auto"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -57,7 +57,7 @@ export default function AnimatedService() {
         
         {/* 세 번째 이미지 */}
         <motion.div 
-          className="relative w-full h-[80vh] max-w-[1440px] mx-auto"
+          className="relative w-full h-[80vh] max-w-full mx-auto"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

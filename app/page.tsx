@@ -3,6 +3,10 @@ import { Navbar } from "@/components/ui/navbar";
 import Image from "next/image";
 import AnimatedHero from "@/components/AnimatedHero";
 import AnimatedService from "@/components/AnimatedService";
+import AnimatedPartners from "@/components/AnimatedPartners";
+import AnimatedProducts from "@/components/AnimatedProducts";
+import AnimatedCTA from "@/components/AnimatedCTA";
+import AnimatedFooter from "@/components/AnimatedFooter";
 
 export default function Home() {
   return (
@@ -75,6 +79,18 @@ export default function Home() {
       
       {/* Service 섹션 */}
       <AnimatedService />
+      
+      {/* Partners 섹션 */}
+      <AnimatedPartners />
+      
+      {/* Products 섹션 */}
+      <AnimatedProducts />
+      
+      {/* CTA 섹션 */}
+      <AnimatedCTA />
+      
+      {/* Footer 섹션 */}
+      <AnimatedFooter />
     </div>
   );
 }
