@@ -109,7 +109,7 @@ export default function PartnershipInquiry() {
                 <input
                   type="text"
                   placeholder="회사명을 입력해주세요"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 />
               </div>
@@ -120,7 +120,7 @@ export default function PartnershipInquiry() {
                 <input
                   type="text"
                   placeholder="대표자명을 입력해주세요"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 />
               </div>
@@ -134,7 +134,7 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 <input
                   type="email"
                   defaultValue="jggoldcompany@jggoldcompany.com"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 />
               </div>
@@ -145,7 +145,7 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 <input
                   type="tel"
                   placeholder="전화번호를 입력해주세요"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 />
               </div>
@@ -159,7 +159,7 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 <input
                   type="text"
                   defaultValue="000-00-00000"
-                  className="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 />
               </div>
@@ -167,7 +167,7 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
               {/* 업종 */}
               <div>
                 <label className="block text-[1rem] leading-[1.2] font-inter mb-2">업종</label>
-                <select className="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                <select className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}>
                   <option value="">업종을 선택해주세요</option>
                   <option value="coffee">커피/음료</option>
@@ -185,7 +185,7 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}>
               <input
                 type="text"
                 placeholder="회사 주소를 입력해주세요"
-                className="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
               />
             </div>
@@ -196,7 +196,7 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
               <textarea
                 placeholder="현재 취급하고 있는 제품들을 입력해주세요"
                 rows={4}
-                className="w-full p-3 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
+                className="w-full p-3 border-0 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
                 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
               />
             </div>
@@ -207,7 +207,7 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
               <input
                 type="text"
                 placeholder="주요 타겟 시장을 입력해주세요"
-                className="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
               />
             </div>
@@ -215,7 +215,7 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
             {/* 파트너십 관심 분야 */}
             <div>
               <label className="block text-[1rem] leading-[1.2] font-inter mb-2">파트너십 관심 분야</label>
-                <select className="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                <select className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}>
                 <option value="">관심 분야를 선택해주세요</option>
                 <option value="product_supply">제품 공급</option>
@@ -233,7 +233,7 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}>
               <textarea
                 placeholder="추가로 문의하실 사항이 있다면 입력해주세요"
                 rows={4}
-                className="w-full p-3 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
+                className="w-full p-3 border-0 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
                 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
               />
             </div>
