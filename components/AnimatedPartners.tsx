@@ -68,7 +68,7 @@ export default function AnimatedPartners() {
           
           <div className="mt-[15px]">
             <h3 className="text-[1.4rem] leading-[1.2] font-bold text-white mb-[5px]">LUPI COFFEE</h3>
-            <p className="text-white text-[1rem] leading-[1.2] opacity-70">프랑스 대체커피 NO:1 두핀커피 전문 브랜드</p>
+            <p className="text-white text-[1rem] leading-[1.2] opacity-70">프랑스 대체커피 NO.1 루핀커피 전문 브랜드</p>
           </div>
         </div>
         
@@ -95,7 +95,7 @@ export default function AnimatedPartners() {
           </div>
           <div className="mt-[15px]">
             <h3 className="text-[1.4rem] leading-[1.2] font-bold text-white mb-[5px]">Coming Soon</h3>
-            <p className="text-white text-[1rem] leading-[1.2] opacity-70">새로운 파트너를 준비 중입니다</p>
+            <p className="text-white text-[1rem] leading-[1.2] opacity-70">곧 다양한 글로벌 파트너사가 소개됩니다.</p>
           </div>
         </div>
         
@@ -122,7 +122,7 @@ export default function AnimatedPartners() {
           </div>
           <div className="mt-[15px]">
             <h3 className="text-[1.4rem] leading-[1.2] font-bold text-white mb-[5px]">Coming Soon</h3>
-            <p className="text-white text-[1rem] leading-[1.2] opacity-70">새로운 파트너를 준비 중입니다</p>
+            <p className="text-white text-[1rem] leading-[1.2] opacity-70">기대하셔도 좋습니다.</p>
           </div>
         </div>
       </div>
