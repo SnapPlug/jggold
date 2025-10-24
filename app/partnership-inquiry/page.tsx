@@ -44,13 +44,13 @@ export default function PartnershipInquiry() {
           <div className="grid grid-cols-3 gap-8">
             {/* 첫 번째 이미지 */}
             <div className="relative group cursor-pointer overflow-hidden bg-gray-200">
-              <img
+              <Image
                 src="/2_Partnership_Benefit_1.png"
                 alt="Partnership Benefit 1"
+                width={393}
+                height={500}
                 className="w-full aspect-[393/500] object-cover transition-transform duration-300 group-hover:scale-105"
-                onError={(e) => {
-                  console.log('Image failed to load:', (e.target as HTMLImageElement).src);
-                }}
+                priority
               />
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
                 <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -62,10 +62,13 @@ export default function PartnershipInquiry() {
             
             {/* 두 번째 이미지 */}
             <div className="relative group cursor-pointer overflow-hidden bg-gray-200">
-              <img
+              <Image
                 src="/3_Partnership_Benefit_2.png"
                 alt="Partnership Benefit 2"
+                width={393}
+                height={500}
                 className="w-full aspect-[393/500] object-cover transition-transform duration-300 group-hover:scale-105"
+                priority
               />
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
                 <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -77,10 +80,13 @@ export default function PartnershipInquiry() {
             
             {/* 세 번째 이미지 */}
             <div className="relative group cursor-pointer overflow-hidden bg-gray-200">
-              <img
+              <Image
                 src="/4_Partnership_Benefit_3.png"
                 alt="Partnership Benefit 3"
+                width={393}
+                height={500}
                 className="w-full aspect-[393/500] object-cover transition-transform duration-300 group-hover:scale-105"
+                priority
               />
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300 flex items-center justify-center">
                 <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
