@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function AnimatedFooter() {
   return (
     <footer className="w-full h-[388px] bg-black text-white">
-      <div className="w-full px-[30px]">
+      <div className="w-full px-3 md:px-[30px]">
         <div className="max-w-full mx-auto">
           {/* 상단 네비게이션 섹션 */}
           <div className="flex justify-top h-[288px] pt-1">

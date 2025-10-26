@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function AnimatedPartners() {
   return (
     <div className="w-full py-20" style={{ backgroundColor: '#A2AD71' }}>
-      <div className="w-full px-[30px]">
+      <div className="w-full px-3 md:px-[30px]">
         <h2 className="text-[1.9rem] leading-[0.9] font-bold text-white mb-[30px]">Partners</h2>
         <div className="text-white text-[1rem] leading-[1.2]">
           <p>이 여정에 뜻을 함께한 파트너들이 있습니다.</p>
@@ -15,7 +15,7 @@ export default function AnimatedPartners() {
       </div>
       
       {/* 파트너 그리드 */}
-      <div className="grid grid-cols-2 gap-24 px-[30px] mt-[20px] mb-[60px]">
+      <div className="grid grid-cols-2 gap-24 px-3 md:px-[30px] mt-[20px] mb-[60px]">
         {/* Favrichon */}
         <div className="h-[452px] relative">
           <div className="h-[452px] w-full overflow-hidden group cursor-pointer relative">

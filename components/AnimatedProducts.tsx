@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function AnimatedProducts() {
   return (
-    <div className="w-full h-[780px] bg-white p-[30px]">
+    <div className="w-full h-[780px] bg-white p-3 md:p-[30px]">
       <div className="w-full h-full flex flex-col justify-top items-center">
         {/* 헤더 */}
         <div className="w-full max-w-full mb-16">

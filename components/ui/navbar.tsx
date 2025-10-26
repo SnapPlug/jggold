@@ -132,16 +132,16 @@ export function Navbar() {
           </div>
 
           {/* 메인 메뉴 항목들 */}
-          <div className="px-3 py-8">
+          <div className="px-3 pt-8">
             {menuItems.map((item, index) => (
-              <div key={item.label} className="border-b border-gray-600 py-4">
+              <div key={item.label} className="py-[25px]">
                 <Link
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center justify-between text-white text-lg font-medium transition-all duration-300 hover:text-gray-300"
+                  className="flex items-center justify-between text-white text-[1.5rem] font-medium transition-all duration-300 hover:text-gray-300"
                 >
                   <span>{item.label}</span>
-                  <span className="text-white/60 text-sm">{item.number}</span>
+                  <span className="text-[#F8F8F6] text-[1.5rem]">{item.number}</span>
                 </Link>
               </div>
             ))}
@@ -154,7 +154,7 @@ export function Navbar() {
                 <Link
                   key={social.label}
                   href={social.href}
-                  className="block text-white text-sm font-medium transition-all duration-300 hover:text-gray-300"
+                  className="block text-white text-[1rem] font-medium transition-all duration-300 hover:text-gray-300"
                 >
                   {social.label}
                 </Link>

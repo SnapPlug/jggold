@@ -17,7 +17,7 @@ export default function AnimatedCTA() {
       
       {/* 오버레이 콘텐츠 */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="w-full px-[30px]">
+        <div className="w-full px-3 md:px-[30px]">
           <div className="max-w-full mx-auto">
             <div className="flex items-center">
               {/* 텍스트 영역 */}

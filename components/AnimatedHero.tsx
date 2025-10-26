@@ -9,7 +9,7 @@ export default function AnimatedHero() {
   return (
     <div className="text-center relative z-10">
       <motion.h2 
-        className="text-white font-normal text-[30.4px] leading-[51.68px] w-[864px] mx-auto"
+        className="text-white font-normal text-[30.4px] leading-[51.68px] w-[864px] mx-auto px-3 md:px-0"
         style={{
           '--framer-text-alignment': 'center',
           '--framer-text-color': 'rgb(255, 255, 255)'

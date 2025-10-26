@@ -22,7 +22,7 @@ export default function AnimatedService() {
             className="object-cover"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-[632px] h-[67px] flex items-center justify-center">
+            <div className="w-[632px] h-[67px] flex items-center justify-center px-3 md:px-0">
               <h3 className="font-sans text-[1.5rem] leading-[1.4] text-white text-center">
                 Alternative Coffee — A New Way to Live <br />
                 커피의 대안, 일상을 바꾸는 새로운 선택
@@ -46,7 +46,7 @@ export default function AnimatedService() {
             className="object-cover"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-[632px] h-[67px] flex items-center justify-center">
+            <div className="w-[632px] h-[67px] flex items-center justify-center px-3 md:px-0">
               <h3 className="font-sans text-[1.5rem] leading-[1.4] text-white text-center">
                 Beyond Caffeine.<br />
                 100% 제로 카페인 커피의 세계를 경험하세요.
@@ -70,7 +70,7 @@ export default function AnimatedService() {
             className="object-cover"
           />
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-[632px] h-[67px] flex items-center justify-center">
+            <div className="w-[632px] h-[67px] flex items-center justify-center px-3 md:px-0">
               <h3 className="font-sans text-[1.5rem] leading-[1.4] text-white text-center">
                 Experience a flavor deeper than coffee. <br />
                 커피보다 더 깊은 풍미를 느끼실 수 있어요.
