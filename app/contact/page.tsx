@@ -11,7 +11,7 @@ export default function Contact() {
       
       {/* Contact 페이지 메인 콘텐츠 */}
       <div className="w-full bg-[#BBB5AD] py-16">
-        <div className="max-w-full mx-auto px-8">
+        <div className="max-w-full mx-auto px-3 md:px-8">
           {/* 상단 구분선 */}
           <div className="w-full h-px bg-black mb-8"></div>
           

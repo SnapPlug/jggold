@@ -28,7 +28,7 @@ export default function About() {
         
         {/* 텍스트 오버레이 */}
         <div className="absolute inset-0 flex items-start justify-start">
-          <div className="pt-[128px] pl-[97px]">
+          <div className="pt-[128px] pl-3 md:pl-[97px]">
             <AnimatedAboutText />
           </div>
         </div>
@@ -37,13 +37,13 @@ export default function About() {
       {/* CEO 섹션 */}
       <div className="w-full h-[491px] bg-white">
         {/* CEO 섹션 제목 */}
-        <div className="px-[30px] h-[87px] flex items-center">
+        <div className="px-3 md:px-[30px] h-[87px] flex items-center">
           <h2 className="text-[1.9rem] leading-[0.9em]" style={{ color: '#121212' }}>
             CEO 정경희 Stacy Jung
           </h2>
         </div>
         
-        <div className="flex gap-[15px] h-[404px] pl-[50px] pr-[57px] pt-[3px]">
+        <div className="flex gap-[15px] h-[404px] pl-3 md:pl-[50px] pr-3 md:pr-[57px] pt-[3px]">
           {/* 왼쪽 CEO 이미지 */}
           <div className="relative h-[401px] w-[312px]">
             <Image
@@ -55,7 +55,7 @@ export default function About() {
           </div>
           
           {/* 오른쪽 텍스트 영역 */}
-          <div className="flex flex-col justify-end h-[404px] pl-8 pr-8 flex-1">
+          <div className="flex flex-col justify-end h-[404px] pl-3 md:pl-8 pr-3 md:pr-8 flex-1">
             <div className="space-y-6 text-gray-700">
               <p>
                 창업자인 저의 소개를 먼저 해야할 것 같아요. 저는 커피를 너무 사랑해서 대학에서 커피 바리스타학과를 전공했고, 10년 넘게 공부해 외식경영학 박사가 되었습니다. 커피는 제 삶의 중심이었고, 제 정체성 그 자체였죠.
@@ -77,7 +77,7 @@ export default function About() {
       
       {/* Facts 섹션 */}
       <div className="w-full bg-white py-16">
-        <div className="max-w-full mx-auto px-8">
+        <div className="max-w-full mx-auto px-3 md:px-8">
           {/* 상단 구분선 */}
           <div className="w-full h-px bg-black mb-8"></div>
           
@@ -99,7 +99,7 @@ export default function About() {
       
       {/* Certifications & Credentials 섹션 */}
       <div className="w-full bg-white py-16">
-        <div className="max-w-full mx-auto px-8">
+        <div className="max-w-full mx-auto px-3 md:px-8">
                       {/* 상단 구분선 */}
           <div className="w-full h-px bg-black mb-8"></div>
           <h2 className="text-[1.9rem] leading-[0.9em]  mb-8" style={{ color: '#121212' }}>
@@ -157,7 +157,7 @@ export default function About() {
       
       {/* CI 섹션 */}
       <div className="w-full bg-white py-16">
-        <div className="max-w-full mx-auto px-8">
+        <div className="max-w-full mx-auto px-3 md:px-8">
           {/* 상단 구분선 */}
           <div className="w-full h-px bg-black mb-8"></div>
           

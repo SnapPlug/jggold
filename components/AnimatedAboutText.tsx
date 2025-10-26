@@ -25,7 +25,7 @@ export default function AnimatedAboutText() {
           delay: 1.2
         }}
       >
-        안신하고 마실 수 있는 '작은 위로'가 될 거라는 걸.
+        안심하고 마실 수 있는 '작은 위로'가 될 거라는 걸.
       </motion.div>
     </div>
   );

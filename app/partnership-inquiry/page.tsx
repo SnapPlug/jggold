@@ -22,7 +22,7 @@ export default function PartnershipInquiry() {
         
         {/* 오버레이 텍스트 */}
         <div className="absolute inset-0 flex items-end justify-start">
-          <div className="pl-[97px] pb-[66px]">
+          <div className="pl-3 md:pl-[97px] pb-[66px]">
             <p className="text-[1.5rem] leading-[1.4em] text-white font-inter">
               JG Gold Company와 함께 성장할 파트너를 찾고 있습니다.
               <br />
@@ -34,7 +34,7 @@ export default function PartnershipInquiry() {
       
       {/* Partnership Benefit 섹션 */}
       <div className="w-full py-16" style={{ backgroundColor: '#F8F8F6' }}>
-        <div className="max-w-full mx-auto px-8">
+        <div className="max-w-full mx-auto px-3 md:px-8">
 
           <h2 className="text-[1.9rem] leading-[0.9em] mb-16 text-center" style={{ color: '#121212' }}>
             Partnership Benefit
@@ -104,7 +104,7 @@ export default function PartnershipInquiry() {
 
       {/* 파트너십 문의 폼 섹션 */}
       <div className="w-full py-16" style={{ backgroundColor: '#F8F8F6' }}>
-        <div className="max-w-full mx-auto px-8">
+        <div className="max-w-full mx-auto px-3 md:px-8">
           <h2 className="text-[1.9rem] leading-[0.9em] mb-16 text-center" style={{ color: '#121212' }}>
             Partnership Inquiry
           </h2>

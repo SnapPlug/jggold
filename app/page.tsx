@@ -36,7 +36,7 @@ export default function Home() {
       <div className="h-[1044px] w-full mx-auto bg-white dark:bg-black">
             <div className="grid lg:grid-cols-2 gap-0 h-full">
               {/* 왼쪽 텍스트 영역 */}
-              <div className="flex flex-col justify-top pt-[30px] px-[30px] h-[575px]">
+              <div className="flex flex-col justify-top pt-[30px] px-3 md:px-[30px] h-[575px]">
                 <div className="w-[87%] h-[269px]">
                   <h2 className="font-sentient text-[1.75rem] leading-[1.2] font-normal text-black mb-[62px]">
                     Alternative Coffee,<br />
