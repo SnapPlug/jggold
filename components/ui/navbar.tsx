@@ -101,7 +101,7 @@ export function Navbar() {
           {/* 모바일 MENU 버튼 */}
           <button
             onClick={() => setIsMobileMenuOpen(true)}
-            className="md:hidden text-white font-medium text-sm transition-all duration-300 hover:text-gray-300"
+            className="md:hidden text-white font-medium text-[12px] transition-all duration-300 hover:text-gray-300"
           >
             MENU
           </button>
@@ -113,12 +113,19 @@ export function Navbar() {
         <div className="fixed inset-0 z-[60] bg-black">
           {/* 상단 헤더 */}
           <div className="flex items-center justify-between px-3 py-6">
-            <div className="text-white text-2xl font-bold">
-              JEGCOND
+            <div className="flex items-center">
+              <Image
+                src="/JG_Logo.png"
+                alt="JG Logo"
+                width={120}
+                height={30}
+                priority
+                className="h-[30px] w-[120px] object-contain"
+              />
             </div>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white font-medium text-sm transition-all duration-300 hover:text-gray-300"
+              className="text-white font-medium text-[12px] transition-all duration-300 hover:text-gray-300"
             >
               CLOSE
             </button>
