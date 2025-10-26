@@ -42,8 +42,8 @@ export function Navbar() {
 
   const menuItems = [
     { label: "About", href: "/about", number: "01" },
-    { label: "Partners", href: "/partners", number: "02" },
-    { label: "Products", href: "/products", number: "03" },
+    { label: "Partners", href: "/#partners", number: "02" },
+    { label: "Products", href: "/#products", number: "03" },
     { label: "Contact", href: "/contact", number: "04" },
     { label: "Partnership Inquiry", href: "/partnership-inquiry", number: "05" },
   ];
@@ -57,18 +57,24 @@ export function Navbar() {
     <>
       <nav 
         className={cn(
-          "fixed top-0 z-50 transition-all duration-700 ease-in-out",
+          "fixed top-0 z-50",
+          // 모바일에서는 항상 기본 상태 유지 (스크롤 효과 없음)
+          "w-full bg-transparent left-1/2 transform -translate-x-1/2",
+          // 데스크톱에서만 스크롤 효과 적용
           isScrolled 
-            ? "w-[800px] h-[60px] left-1/2 transform -translate-x-1/2 mt-4 rounded-full bg-gray-800/85 backdrop-blur-[10px] shadow-lg px-[25px] py-[15px]" 
-            : "w-full bg-transparent left-1/2 transform -translate-x-1/2"
+            ? "md:w-[800px] md:h-[60px] md:left-1/2 md:transform md:-translate-x-1/2 md:mt-4 md:rounded-full md:bg-gray-800/85 md:backdrop-blur-[10px] md:shadow-lg md:px-[25px]" 
+            : "md:transition-all md:duration-700 md:ease-in-out"
         )}
       >
         <div 
           className={cn(
-            "mx-auto flex items-center transition-all duration-700 ease-in-out",
+            "mx-auto flex items-center",
+            // 모바일에서는 항상 기본 상태 유지 (스크롤 효과 없음)
+            "w-full max-w-content px-3 mobile:px-3 tablet:px-10 desktop:px-[30px] desktop:py-[30px] h-[77px] justify-between",
+            // 데스크톱에서만 스크롤 효과 적용
             isScrolled
-              ? "max-w-none justify-between"
-              : "w-full max-w-content px-3 mobile:px-3 tablet:px-10 desktop:px-[30px] desktop:py-[30px] h-[77px] justify-between"
+              ? "md:max-w-none md:justify-between md:items-center md:h-[60px] md:transition-all md:duration-700 md:ease-in-out"
+              : "md:transition-all md:duration-700 md:ease-in-out"
           )}
         >
           {/* 로고 영역 */}

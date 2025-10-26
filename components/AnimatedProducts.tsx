@@ -1,24 +1,192 @@
 "use client";
 
 import Image from "next/image";
+import { useState, useRef } from "react";
 
 export default function AnimatedProducts() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [startX, setStartX] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const products = [
+    {
+      image: "/10. Products_1.png",
+      name: "[Favrichon] 치커리 커피 100g",
+      price: "19,500원",
+      originalPrice: "25,000원",
+      isComingSoon: false
+    },
+    {
+      image: "/11. Products_2.png",
+      name: "[LUPI COFFEE] ORIGINAL 200g",
+      price: "COMING SOON",
+      originalPrice: null,
+      isComingSoon: true
+    },
+    {
+      image: "/12. Products_3.png",
+      name: "[LUPI COFFEE] INTENSE 200g",
+      price: "COMING SOON",
+      originalPrice: null,
+      isComingSoon: true
+    },
+    {
+      image: "/13. Products_4.png",
+      name: "[LUPI COFFEE] DARK 200g",
+      price: "COMING SOON",
+      originalPrice: null,
+      isComingSoon: true
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % products.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + products.length) % products.length);
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setStartX(e.touches[0].clientX);
+    setIsDragging(true);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!isDragging) return;
+    
+    const endX = e.changedTouches[0].clientX;
+    const diffX = startX - endX;
+    const threshold = 50;
+
+    if (Math.abs(diffX) > threshold) {
+      if (diffX > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+    
+    setIsDragging(false);
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setStartX(e.clientX);
+    setIsDragging(true);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    
+    const endX = e.clientX;
+    const diffX = startX - endX;
+    const threshold = 50;
+
+    if (Math.abs(diffX) > threshold) {
+      if (diffX > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+    
+    setIsDragging(false);
+  };
+
   return (
-    <div className="w-full h-[780px] bg-white p-3 md:p-[30px]">
+    <div id="products" className="w-full h-[708px] md:h-[780px] bg-white p-3 md:p-[30px]">
       <div className="w-full h-full flex flex-col justify-top items-center">
         {/* 헤더 */}
-        <div className="w-full max-w-full mb-16">
-          <h2 className="text-[1.9rem] leading-[0.9] font-bold mb-[30px]" style={{ color: '#112211' }}>
+        <div className="w-full max-w-full md:mb-16">
+          <h2 className="text-[1.2rem] md:text-[1.9rem] leading-[0.9] font-bold mb-[30px]" style={{ color: '#112211' }}>
             Products
           </h2>
-          <div className="text-[1rem] leading-[1.2]" style={{ color: '#112211' }}>
+          <div className="text-[0.8rem] md:text-[1rem] leading-[1.2]" style={{ color: '#112211' }}>
             <p>커피를 포기하지 않아도 되는 방법이 여기 있습니다.</p>
             <p>당신의 하루를 부드럽게 바꿔줄 한 잔을 만나보세요.</p>
           </div>
         </div>
         
-        {/* 제품 그리드 */}
-        <div className="w-full max-w-full h-[513px] grid grid-cols-4 gap-16">
+        {/* 모바일: 슬라이딩 캐러셀 */}
+        <div className="md:hidden flex-1 flex flex-col justify-center w-full">
+          <div 
+            ref={containerRef}
+            className="relative w-full h-[400px] overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
+          >
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            >
+              {products.map((product, index) => (
+                <div key={index} className="w-full flex-shrink-0 flex flex-col items-center px-4">
+                  <div className="w-full h-[300px] mb-4 relative overflow-hidden">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-[0.8rem] leading-[1.2em] font-medium mb-2" style={{ color: '#000000' }}>
+                      {product.name}
+                    </h3>
+                    {product.isComingSoon ? (
+                      <p className="text-[0.8rem] leading-[1.2em]" style={{ color: '#000000' }}>
+                        {product.price}
+                      </p>
+                    ) : (
+                      <div className="flex items-center justify-center gap-2">
+                        <span className="text-[0.8rem] line-through text-black">{product.originalPrice}</span>
+                        <span className="text-[0.8rem] text-[#800000]">{product.price}</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* 페이지네이션 */}
+          <div className="flex justify-center mt-4">
+            <div className="bg-gray-500/50 rounded-full px-4 py-2 flex space-x-2 shadow-lg">
+              {products.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                    currentSlide === index ? 'bg-white shadow-md' : 'bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        {/* 데스크톱: 제품 그리드 */}
+        <div className="hidden md:grid w-full max-w-full h-[513px] grid-cols-4 gap-16">
           {/* 제품 1 - Favrichon */}
           <div className="flex flex-col items-center">
             <div className="w-full h-[440px] mb-4 relative overflow-hidden group cursor-pointer">
