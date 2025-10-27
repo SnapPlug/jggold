@@ -7,10 +7,88 @@ import AnimatedPartners from "@/components/AnimatedPartners";
 import AnimatedProducts from "@/components/AnimatedProducts";
 import AnimatedCTA from "@/components/AnimatedCTA";
 import AnimatedFooter from "@/components/AnimatedFooter";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "JG Gold Company - 대체커피 전문 브랜드 | 카페인 프리 커피",
+  description: "JG Gold Company는 해외의 특별한 대체커피 브랜드를 발굴해 한국에 소개하는 회사입니다. 카페인 프리 커피로 새로운 라이프스타일을 제안합니다.",
+  keywords: "대체커피, 카페인프리, 디카페인, 커피, JG Gold, 대체음료, 건강커피",
+  openGraph: {
+    title: "JG Gold Company - 대체커피 전문 브랜드",
+    description: "카페인 프리 커피로 새로운 라이프스타일을 제안하는 JG Gold Company",
+    type: "website",
+    locale: "ko_KR",
+    siteName: "JG Gold Company",
+    images: [
+      {
+        url: "/1. Home_Landing Hero.png",
+        width: 1200,
+        height: 630,
+        alt: "JG Gold Company 대체커피",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "JG Gold Company - 대체커피 전문 브랜드",
+    description: "카페인 프리 커피로 새로운 라이프스타일을 제안합니다",
+    images: ["/1. Home_Landing Hero.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://jggoldcompany.com",
+  },
+};
 
 export default function Home() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "JG Gold Company",
+    "description": "해외의 특별한 대체커피 브랜드를 발굴해 한국에 소개하는 회사",
+    "url": "https://jggoldcompany.com",
+    "logo": "https://jggoldcompany.com/JG_Logo.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+82-70-7633-9525",
+      "contactType": "customer service",
+      "email": "stacyjung@jggoldcompany.com"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1404, 24, Simin-ro",
+      "addressLocality": "Uijeongbu-si",
+      "addressRegion": "Gyeonggi-do",
+      "postalCode": "11649",
+      "addressCountry": "KR"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "정경희 Stacy Jung",
+      "jobTitle": "CEO"
+    },
+    "sameAs": [
+      "https://jggoldcompany.com"
+    ]
+  };
+
   return (
     <div className="min-h-screen bg-zinc-50 font-sans dark:bg-black">
+      {/* 구조화된 데이터 */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* 네비게이션바 */}
       <Navbar />
       

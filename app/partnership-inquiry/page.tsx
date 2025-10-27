@@ -6,6 +6,7 @@ import AnimatedFooter from "@/components/AnimatedFooter";
 import Image from "next/image";
 
 export default function PartnershipInquiry() {
+  
   return (
     <div className="min-h-screen font-sans" style={{ backgroundColor: '#F8F8F6' }}>
       {/* 네비게이션바 */}

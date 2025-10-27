@@ -4,6 +4,41 @@ import AnimatedFooter from "@/components/AnimatedFooter";
 import AnimatedAboutText from "@/components/AnimatedAboutText";
 import AnimatedFacts from "@/components/AnimatedFacts";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About JG Gold Company | CEO 정경희 Stacy Jung | 대체커피 전문가",
+  description: "JG Gold Company CEO 정경희 Stacy Jung의 이야기. 커피 바리스타학과 전공, 외식경영학 박사 출신으로 대체커피 전문가가 되기까지의 여정을 소개합니다.",
+  keywords: "JG Gold CEO, 정경희, Stacy Jung, 대체커피 전문가, 커피 바리스타, 외식경영학 박사",
+  openGraph: {
+    title: "About JG Gold Company | CEO 정경희 Stacy Jung",
+    description: "대체커피 전문가 CEO 정경희 Stacy Jung의 이야기",
+    type: "website",
+    locale: "ko_KR",
+    siteName: "JG Gold Company",
+    images: [
+      {
+        url: "/1. About_Home.png",
+        width: 1200,
+        height: 630,
+        alt: "JG Gold Company CEO 정경희 Stacy Jung",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About JG Gold Company | CEO 정경희 Stacy Jung",
+    description: "대체커피 전문가 CEO의 이야기",
+    images: ["/1. About_Home.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://jggoldcompany.com/about",
+  },
+};
 
 export default function About() {
   return (
