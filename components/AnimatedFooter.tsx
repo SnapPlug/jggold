@@ -1,8 +1,29 @@
 "use client";
 
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 export default function AnimatedFooter() {
+  const [showCompanyPopover, setShowCompanyPopover] = useState(false);
+
+  // 팝오버 외부 클릭 시 닫기
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (!target.closest('.company-popover-container')) {
+        setShowCompanyPopover(false);
+      }
+    };
+
+    if (showCompanyPopover) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showCompanyPopover]);
+
   return (
     <footer className="w-full h-[388px] bg-black text-white">
       <div className="w-full px-3 md:px-[30px]">
@@ -55,7 +76,30 @@ export default function AnimatedFooter() {
               <div className="flex justify-center md:justify-end space-x-6 md:space-x-8">
                 <a href="#" className="text-white text-[12px] md:text-[14px] hover:text-white/70 transition-colors">Privacy</a>
                 <a href="#" className="text-white text-[12px] md:text-[14px] hover:text-white/70 transition-colors">Terms of Service</a>
-                <a href="#" className="text-white text-[12px] md:text-[14px] hover:text-white/70 transition-colors">Company</a>
+                <div className="relative company-popover-container">
+                  <button 
+                    onClick={() => setShowCompanyPopover(!showCompanyPopover)}
+                    className="text-white text-[12px] md:text-[14px] hover:text-white/70 transition-colors"
+                  >
+                    Company
+                  </button>
+                  
+                  {/* 팝오버 */}
+                  {showCompanyPopover && (
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-black border border-gray-600 rounded-lg p-4 shadow-lg z-50 min-w-[200px]">
+                      {/* 화살표 */}
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black"></div>
+                      
+                      {/* 사업자 정보 */}
+                      <div className="text-white text-sm space-y-1">
+                        <div className="font-semibold text-base">(주) 정금금속</div>
+                        <div>사업자등록번호: 127-46-67605</div>
+                        <div>대표자: 정경희</div>
+                        <div>Email: stacyjung@jggoldcompany.com</div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
