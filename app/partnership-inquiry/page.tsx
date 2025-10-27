@@ -12,7 +12,7 @@ export default function PartnershipInquiry() {
       <Navbar />
       
       {/* Partnership Inquiry 히어로 섹션 */}
-      <div className="w-full h-[600px] relative overflow-hidden">
+      <div className="w-full h-[400px] md:h-[600px] relative overflow-hidden">
         <Image
           src="/1. Partnership Inquiry_Home.png"
           alt="Partnership Inquiry Hero Background"
@@ -22,9 +22,10 @@ export default function PartnershipInquiry() {
         
         {/* 오버레이 텍스트 */}
         <div className="absolute inset-0 flex items-end justify-start">
-          <div className="pl-3 md:pl-[97px] pb-[66px]">
-            <p className="text-[1.5rem] leading-[1.4em] text-white font-inter">
-              JG Gold Company와 함께 성장할 파트너를 찾고 있습니다.
+          <div className="pl-3 md:pl-[97px] pb-[40px] md:pb-[66px]">
+            <p className="text-[1.0rem] md:text-[1.5rem] leading-[1.4em] text-white font-inter">
+              JG Gold Company와<br />
+              함께 성장할 파트너를 찾고 있습니다.
               <br />
               대체커피 시장의 새로운 가능성을 함께 만들어가요.
             </p>
@@ -36,12 +37,72 @@ export default function PartnershipInquiry() {
       <div className="w-full py-16" style={{ backgroundColor: '#F8F8F6' }}>
         <div className="max-w-full mx-auto px-3 md:px-8">
 
-          <h2 className="text-[1.9rem] leading-[0.9em] mb-16 text-center" style={{ color: '#121212' }}>
+          <h2 className="text-[1.2rem] md:text-[1.9rem] leading-[0.9em] mb-8 md:mb-16 text-center" style={{ color: '#121212' }}>
             Partnership Benefit
           </h2>
           
-          {/* Partnership Benefit 이미지 그리드 */}
-          <div className="grid grid-cols-3 gap-3 justify-center place-items-center">
+          {/* 모바일 Partnership Benefit 이미지 그리드 */}
+          <div className="md:hidden grid grid-cols-1 gap-2 justify-center place-items-center">
+            {/* 첫 번째 이미지 */}
+            <div className="relative group cursor-pointer overflow-hidden bg-gray-200 w-full max-w-[full]" style={{ height: '250px' }}>
+              <Image
+                src="/partership_1.png"
+                alt="Partnership Benefit 1"
+                width={300}
+                height={250}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                priority
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <div className="text-white text-center px-4">
+                  <h3 className="text-[1.2rem] leading-[1.2em] text-white font-bold mb-[16px]">품질 보증</h3>
+                  <p className="text-[0.8rem] leading-[1.2em] text-white">130개 브랜드 리서치와 42종 시음을 통해 검증된<br />최고 품질의 제품을 안정적으로 공급받을 수 있습니다.</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* 두 번째 이미지 */}
+            <div className="relative group cursor-pointer overflow-hidden bg-gray-200 w-full max-w-[full]" style={{ height: '250px' }}>
+              <Image
+                src="/partership_2.png"
+                alt="Partnership Benefit 2"
+                width={300}
+                height={250}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                priority
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <div className="text-white text-center px-4">
+                  <h3 className="text-[1.2rem] leading-[1.2em] text-white font-bold mb-[16px]">글로벌 네트워크</h3>
+                  <p className="text-[0.8rem] leading-[1.2em] text-white">8개국에서의 직수입 경험과 32개 글로벌 파트너와의<br />협력을 통해 해외 시장 진출을 지원합니다.</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* 세 번째 이미지 */}
+            <div className="relative group cursor-pointer overflow-hidden bg-gray-200 w-full max-w-[full]" style={{ height: '250px' }}>
+              <Image
+                src="/partership_3.png"
+                alt="Partnership Benefit 3"
+                width={300}
+                height={250}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                priority
+                unoptimized
+              />
+              <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <div className="text-white text-center px-4">
+                  <h3 className="text-[1.2rem] leading-[1.2em] text-white font-bold mb-[16px]">맞춤형 지원</h3>
+                  <p className="text-[0.8rem] leading-[1.2em] text-white">파트너의 사업 규모와 목표에 맞는<br />맞춤형 비즈니스 모델과 마케팅 전략을 제안합니다.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* 데스크톱 Partnership Benefit 이미지 그리드 */}
+          <div className="hidden md:grid grid-cols-3 gap-3 justify-center place-items-center">
             {/* 첫 번째 이미지 */}
             <div className="relative group cursor-pointer overflow-hidden bg-gray-200" style={{ width: '393px', height: '500px' }}>
               <Image
@@ -104,81 +165,81 @@ export default function PartnershipInquiry() {
 
       {/* 파트너십 문의 폼 섹션 */}
       <div className="w-full py-16" style={{ backgroundColor: '#F8F8F6' }}>
-        <div className="max-w-full mx-auto px-3 md:px-8">
-          <h2 className="text-[1.9rem] leading-[0.9em] mb-16 text-center" style={{ color: '#121212' }}>
+        <div className="max-w-full mx-auto px-6 md:px-8">
+          <h2 className="text-[1.2rem] md:text-[1.9rem] leading-[0.9em] mb-8 md:mb-16 text-center" style={{ color: '#121212' }}>
             Partnership Inquiry
           </h2>
           
           <form className="max-w-4xl mx-auto space-y-6">
             {/* 상단 2열 섹션 */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {/* 회사명 */}
               <div>
-                <label className="block text-[1rem] leading-[1.2] font-inter mb-2">회사명</label>
+                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">회사명</label>
                 <input
                   type="text"
                   placeholder="회사명을 입력해주세요"
-                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
                   style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 />
               </div>
               
               {/* 대표자명 */}
               <div>
-                <label className="block text-[1rem] leading-[1.2] font-inter mb-2">대표자명</label>
+                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">대표자명</label>
                 <input
                   type="text"
                   placeholder="대표자명을 입력해주세요"
-                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 />
               </div>
             </div>
             
             {/* 두 번째 2열 섹션 */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {/* 이메일 */}
               <div>
-                <label className="block text-[1rem] leading-[1.2] font-inter mb-2">이메일</label>
+                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">이메일</label>
                 <input
                   type="email"
                   defaultValue="jggoldcompany@jggoldcompany.com"
-                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 />
               </div>
               
               {/* 전화번호 */}
               <div>
-                <label className="block text-[1rem] leading-[1.2] font-inter mb-2">전화번호</label>
+                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">전화번호</label>
                 <input
                   type="tel"
                   placeholder="전화번호를 입력해주세요"
-                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 />
               </div>
             </div>
             
             {/* 세 번째 2열 섹션 */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {/* 사업자등록번호 */}
               <div>
-                <label className="block text-[1rem] leading-[1.2] font-inter mb-2">사업자등록번호</label>
+                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">사업자등록번호</label>
                 <input
                   type="text"
                   defaultValue="000-00-00000"
-                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 />
               </div>
               
               {/* 업종 */}
               <div>
-                <label className="block text-[1rem] leading-[1.2] font-inter mb-2">업종</label>
+                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">업종</label>
                 <div className="relative">
                   <select
-                    className="w-full px-4 py-3 pr-10 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none"
+                    className="w-full px-4 py-3 pr-10 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent appearance-none text-base"
                     style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                     defaultValue=""
                   >
@@ -202,43 +263,43 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
             
             {/* 회사 주소 */}
             <div>
-              <label className="block text-[1rem] leading-[1.2] font-inter mb-2">회사 주소</label>
+                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">회사 주소</label>
               <input
                 type="text"
                 placeholder="회사 주소를 입력해주세요"
-                className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
               />
             </div>
             
             {/* 현재 취급 제품 */}
             <div>
-              <label className="block text-[1rem] leading-[1.2] font-inter mb-2">현재 취급 제품</label>
+                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">현재 취급 제품</label>
               <textarea
                 placeholder="현재 취급하고 있는 제품들을 입력해주세요"
                 rows={4}
-                className="w-full p-3 border-0 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
+                className="w-full p-3 border-0 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent resize-vertical text-base"
                 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
               />
             </div>
             
             {/* 주요 타겟 시장 */}
             <div>
-              <label className="block text-[1rem] leading-[1.2] font-inter mb-2">주요 타겟 시장</label>
+                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">주요 타겟 시장</label>
               <input
                 type="text"
                 placeholder="주요 타겟 시장을 입력해주세요"
-                className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
               />
             </div>
             
             {/* 파트너십 관심 분야 */}
             <div>
-              <label className="block text-[1rem] leading-[1.2] font-inter mb-2">파트너십 관심 분야</label>
+                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">파트너십 관심 분야</label>
               <div className="relative">
                 <select
-                  className="w-full px-4 py-3 pr-10 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none"
+                  className="w-full px-4 py-3 pr-10 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent appearance-none"
                   style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                   defaultValue=""
                 >
@@ -262,11 +323,11 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
             
             {/* 추가 문의사항 */}
             <div>
-              <label className="block text-[1rem] leading-[1.2] font-inter mb-2">추가 문의사항</label>
+                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">추가 문의사항</label>
               <textarea
                 placeholder="추가로 문의하실 사항이 있다면 입력해주세요"
                 rows={4}
-                className="w-full p-3 border-0 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical"
+                className="w-full p-3 border-0 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent resize-vertical text-base"
                 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
               />
             </div>
@@ -294,7 +355,7 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
       </div>
 
       {/* 비디오 섹션 */}
-      <div className="w-full h-[675px] relative overflow-hidden">
+      <div className="w-full h-[300px] md:h-[675px] relative overflow-hidden">
         <video
           className="w-full h-full object-cover"
           autoPlay
@@ -302,6 +363,11 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
           loop
           playsInline
           controls={false}
+          preload="auto"
+          webkit-playsinline="true"
+          x5-playsinline="true"
+          x5-video-player-type="h5"
+          x5-video-player-fullscreen="false"
         >
           <source src="/Partership_video.mp4" type="video/mp4" />
         </video>

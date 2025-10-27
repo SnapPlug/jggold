@@ -35,18 +35,18 @@ function AnimatedCounter({ targetValue, label, delay = 0 }: AnimatedFactsProps) 
   }, [targetValue, delay]);
 
   return (
-    <div className="bg-[#443F36] p-[20px] min-h-[185px]">
-      <div className="font-sentient text-[3rem] leading-[0.9em] tracking-[-0.02em] text-white mb-[10px]">
+    <div className="bg-[#443F36] p-[20px] min-h-[106px] md:min-h-[185px]">
+      <div className="font-sentient text-[2rem] md:text-[3rem] leading-[0.9em] tracking-[-0.02em] text-white mb-[10px]">
         {count}
       </div>
-      <p className="font-inter text-[1.4rem] leading-[0.9em] text-white">{label}</p>
+      <p className="font-inter text-[1rem] md:text-[1.4rem] leading-[0.9em] text-white">{label}</p>
     </div>
   );
 }
 
 export default function AnimatedFacts() {
   return (
-    <div className="grid grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
       <AnimatedCounter targetValue={133} label="Brand Research Studies" delay={0} />
       <AnimatedCounter targetValue={52} label="Sample Tastings" delay={200} />
       <AnimatedCounter targetValue={8} label="Global Partners" delay={400} />

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function AnimatedAboutText() {
   return (
-    <div className="text-[1.5rem] leading-[1.4em] text-white font-inter">
+    <div className="text-[1.0rem] md:text-[1.5rem] leading-[1.4em] text-white font-inter">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}

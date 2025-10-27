@@ -15,8 +15,39 @@ export default function Contact() {
           {/* 상단 구분선 */}
           <div className="w-full h-px bg-black mb-8"></div>
           
-          {/* Contact 제목과 연락처 정보를 같은 줄에 배치 */}
-          <div className="flex items-start gap-8 mb-16">
+          {/* 모바일 레이아웃 */}
+          <div className="md:hidden flex flex-col gap-8 mb-16">
+            {/* Contact 제목 */}
+            <h2 className="text-[1.2rem] leading-[0.9em]" style={{ color: '#121212' }}>
+              Contact
+            </h2>
+            
+            {/* 연락처 정보 2x2 그리드 */}
+            <div className="grid grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <span className="text-black text-[0.8rem] leading-[1.2em]">Phone</span>
+                <p className="text-white/70 text-[0.8rem] leading-[1.2em]">+82 70-7633-9525</p>
+              </div>
+              
+              <div className="space-y-2">
+                <span className="text-black text-[0.8rem] leading-[1.2em]">Address</span>
+                <p className="text-white/70 text-[0.8rem] leading-[1.2em] break-words">1404, 24, Simin-ro, Uijeongbu-si, Gyeonggi-do, Republic of Korea 11649</p>
+              </div>
+              
+              <div className="space-y-2">
+                <span className="text-black text-[0.8rem] leading-[1.2em]">Email</span>
+                <p className="text-white/70 text-[0.8rem] leading-[1.2em] break-words">stacyjung@jggoldcompany.com</p>
+              </div>
+              
+              <div className="space-y-2">
+                <span className="text-black text-[0.8rem] leading-[1.2em]">Fax</span>
+                <p className="text-white/70 text-[0.8rem] leading-[1.2em]">0504-045-9525</p>
+              </div>
+            </div>
+          </div>
+
+          {/* 데스크톱 레이아웃 */}
+          <div className="hidden md:flex items-start gap-8 mb-16">
             {/* Contact 제목 */}
             <div className="w-1/2">
               <h2 className="text-[1.9rem] leading-[0.9em]" style={{ color: '#121212' }}>
@@ -51,13 +82,13 @@ export default function Contact() {
           </div>
           
           {/* Contact 이미지 */}
-          <div className="w-full">
+          <div className="w-full aspect-square md:aspect-auto">
             <Image
               src="/Contact.png"
               alt="Contact JG Gold"
               width={1200}
               height={600}
-              className="w-full h-auto"
+              className="w-full h-full object-cover md:h-auto"
             />
           </div>
         </div>
