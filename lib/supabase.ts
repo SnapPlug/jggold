@@ -1,8 +1,11 @@
 import { createClient } from '@supabase/supabase-js'
 
-// Supabase 프로젝트 설정
-const supabaseUrl = 'https://wtbxqmsfnjhixabtgisj.supabase.co'
-// 실제 anon key는 Supabase 대시보드에서 확인 후 교체 필요
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0YnhxbXNmbmpoaXhhYnRnaXNqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE2ODQwNjIsImV4cCI6MjA3NzI2MDA2Mn0.QEAn4xEQj_MhsUEHwynUN1r4ep7W9KyPi0zW7-eemrg'
+// Supabase 프로젝트 설정 - 환경 변수 사용
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Missing Supabase environment variables')
+}
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)

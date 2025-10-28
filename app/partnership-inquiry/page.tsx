@@ -41,21 +41,55 @@ export default function PartnershipInquiry() {
     try {
       console.log('Submitting form data:', formData);
       
+      // 테이블명도 확인해보겠습니다
+      console.log('Checking table access...');
+      
+      // 먼저 테이블 스키마를 확인해보겠습니다
+      const { data: schemaData, error: schemaError } = await supabase
+        .from('Inquiry')
+        .select('*')
+        .limit(1);
+      
+      console.log('Table schema check:', { schemaData, schemaError });
+      
+      // 만약 Inquiry 테이블에 접근할 수 없다면 다른 테이블명 시도
+      if (schemaError) {
+        console.log('Trying alternative table names...');
+        
+        // 다른 가능한 테이블명들 시도
+        const alternativeTables = ['inquiry', 'partnership_inquiries', 'inquiries'];
+        
+        for (const tableName of alternativeTables) {
+          const { data: altData, error: altError } = await supabase
+            .from(tableName)
+            .select('*')
+            .limit(1);
+          
+          console.log(`Table ${tableName}:`, { altData, altError });
+          
+          if (!altError) {
+            console.log(`Found working table: ${tableName}`);
+            break;
+          }
+        }
+      }
+      
+      // 실제 테이블 스키마에 맞는 컬럼명으로 데이터 삽입
       const { data, error } = await supabase
         .from('Inquiry')
         .insert([
           {
-            company_name: formData.company_name,
-            representative_name: formData.representative_name,
-            email: formData.email,
-            phone: formData.phone,
-            business_registration_number: formData.business_number,
-            business_type: formData.industry,
-            address: formData.address,
-            current_products: formData.current_products,
-            target_market: formData.target_market,
-            partnership_part: formData.partnership_interest,
-            more_inquiry: formData.additional_inquiry
+            'Company Name': formData.company_name,
+            'Name': formData.representative_name,
+            'Email': formData.email,
+            'Phone': formData.phone,
+            'Business Registration Number': formData.business_number,
+            'Business Type': formData.industry,
+            'Address': formData.address,
+            'Current Products': formData.current_products,
+            'Target Market': formData.target_market,
+            'Partnership Part': formData.partnership_interest,
+            'More Inquiry': formData.additional_inquiry
           }
         ]);
 
