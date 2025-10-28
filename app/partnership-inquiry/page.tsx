@@ -39,26 +39,31 @@ export default function PartnershipInquiry() {
     setSubmitMessage('');
 
     try {
+      console.log('Submitting form data:', formData);
+      
       const { data, error } = await supabase
         .from('Inquiry')
         .insert([
           {
-            'Company Name': formData.company_name,
-            'Name': formData.representative_name,
-            'Email': formData.email,
-            'Phone': formData.phone,
-            'Business Registration...': formData.business_number,
-            'Business Type': formData.industry,
-            'Address': formData.address,
-            'Current Products': formData.current_products,
-            'Target Market': formData.target_market,
-            'Partnership Part': formData.partnership_interest,
-            'More Inquiry': formData.additional_inquiry
+            company_name: formData.company_name,
+            representative_name: formData.representative_name,
+            email: formData.email,
+            phone: formData.phone,
+            business_registration_number: formData.business_number,
+            business_type: formData.industry,
+            address: formData.address,
+            current_products: formData.current_products,
+            target_market: formData.target_market,
+            partnership_part: formData.partnership_interest,
+            more_inquiry: formData.additional_inquiry
           }
         ]);
 
+      console.log('Supabase response:', { data, error });
+
       if (error) {
-        throw error;
+        console.error('Supabase error details:', error);
+        throw new Error(`데이터베이스 오류: ${error.message}`);
       }
 
       setSubmitMessage('문의가 성공적으로 제출되었습니다. 빠른 시일 내에 연락드리겠습니다.');
@@ -80,7 +85,8 @@ export default function PartnershipInquiry() {
 
     } catch (error) {
       console.error('Error submitting form:', error);
-      setSubmitMessage('문의 제출 중 오류가 발생했습니다. 다시 시도해주세요.');
+      const errorMessage = error instanceof Error ? error.message : '알 수 없는 오류가 발생했습니다.';
+      setSubmitMessage(`문의 제출 중 오류가 발생했습니다: ${errorMessage}`);
     } finally {
       setIsSubmitting(false);
     }
