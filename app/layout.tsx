@@ -12,9 +12,9 @@ export const metadata: Metadata = {
   title: "JG Gold",
   description: "JG Gold - Premium Quality Solutions",
   icons: {
-    icon: "/farvicon_JGGOLD.png",
-    shortcut: "/farvicon_JGGOLD.png",
-    apple: "/farvicon_JGGOLD.png",
+    icon: "/farvicon.png",
+    shortcut: "/farvicon.png",
+    apple: "/farvicon.png",
   },
 };
 
