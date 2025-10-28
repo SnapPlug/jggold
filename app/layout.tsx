@@ -11,6 +11,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "JG Gold",
   description: "JG Gold - Premium Quality Solutions",
+  icons: {
+    icon: "/farvicon_JGGOLD.png",
+    shortcut: "/farvicon_JGGOLD.png",
+    apple: "/farvicon_JGGOLD.png",
+  },
 };
 
 export default function RootLayout({
