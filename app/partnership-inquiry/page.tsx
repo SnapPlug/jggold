@@ -40,21 +40,20 @@ export default function PartnershipInquiry() {
 
     try {
       const { data, error } = await supabase
-        .from('partnership_inquiries')
+        .from('Inquiry')
         .insert([
           {
-            company_name: formData.company_name,
-            representative_name: formData.representative_name,
-            email: formData.email,
-            phone: formData.phone,
-            business_number: formData.business_number,
-            industry: formData.industry,
-            address: formData.address,
-            current_products: formData.current_products,
-            target_market: formData.target_market,
-            partnership_interest: formData.partnership_interest,
-            additional_inquiry: formData.additional_inquiry,
-            created_at: new Date().toISOString()
+            'Company Name': formData.company_name,
+            'Name': formData.representative_name,
+            'Email': formData.email,
+            'Phone': formData.phone,
+            'Business Registration...': formData.business_number,
+            'Business Type': formData.industry,
+            'Address': formData.address,
+            'Current Products': formData.current_products,
+            'Target Market': formData.target_market,
+            'Partnership Part': formData.partnership_interest,
+            'More Inquiry': formData.additional_inquiry
           }
         ]);
 
