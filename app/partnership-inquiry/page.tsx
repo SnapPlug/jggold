@@ -4,9 +4,89 @@ import { Container, Section } from "@/components/ui/container";
 import { Navbar } from "@/components/ui/navbar";
 import AnimatedFooter from "@/components/AnimatedFooter";
 import Image from "next/image";
+import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 export default function PartnershipInquiry() {
+  const [formData, setFormData] = useState({
+    company_name: '',
+    representative_name: '',
+    email: '',
+    phone: '',
+    business_number: '',
+    industry: '',
+    address: '',
+    current_products: '',
+    target_market: '',
+    partnership_interest: '',
+    additional_inquiry: ''
+  });
   
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+
+    try {
+      const { data, error } = await supabase
+        .from('partnership_inquiries')
+        .insert([
+          {
+            company_name: formData.company_name,
+            representative_name: formData.representative_name,
+            email: formData.email,
+            phone: formData.phone,
+            business_number: formData.business_number,
+            industry: formData.industry,
+            address: formData.address,
+            current_products: formData.current_products,
+            target_market: formData.target_market,
+            partnership_interest: formData.partnership_interest,
+            additional_inquiry: formData.additional_inquiry,
+            created_at: new Date().toISOString()
+          }
+        ]);
+
+      if (error) {
+        throw error;
+      }
+
+      setSubmitMessage('문의가 성공적으로 제출되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+      
+      // 폼 초기화
+      setFormData({
+        company_name: '',
+        representative_name: '',
+        email: '',
+        phone: '',
+        business_number: '',
+        industry: '',
+        address: '',
+        current_products: '',
+        target_market: '',
+        partnership_interest: '',
+        additional_inquiry: ''
+      });
+
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitMessage('문의 제출 중 오류가 발생했습니다. 다시 시도해주세요.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen font-sans" style={{ backgroundColor: '#F8F8F6' }}>
       {/* 네비게이션바 */}
@@ -171,7 +251,7 @@ export default function PartnershipInquiry() {
             Partnership Inquiry
           </h2>
           
-          <form className="max-w-4xl mx-auto space-y-6">
+          <form className="max-w-4xl mx-auto space-y-6" onSubmit={handleSubmit}>
             {/* 상단 2열 섹션 */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {/* 회사명 */}
@@ -179,9 +259,13 @@ export default function PartnershipInquiry() {
                 <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">회사명</label>
                 <input
                   type="text"
+                  name="company_name"
+                  value={formData.company_name}
+                  onChange={handleInputChange}
                   placeholder="회사명을 입력해주세요"
                   className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
                   style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                  required
                 />
               </div>
               
@@ -190,9 +274,13 @@ export default function PartnershipInquiry() {
                 <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">대표자명</label>
                 <input
                   type="text"
+                  name="representative_name"
+                  value={formData.representative_name}
+                  onChange={handleInputChange}
                   placeholder="대표자명을 입력해주세요"
                   className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
-style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                  style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                  required
                 />
               </div>
             </div>
@@ -204,9 +292,13 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">이메일</label>
                 <input
                   type="email"
-                  defaultValue="jggoldcompany@jggoldcompany.com"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder="이메일을 입력해주세요"
                   className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
-style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                  style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                  required
                 />
               </div>
               
@@ -215,9 +307,13 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">전화번호</label>
                 <input
                   type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   placeholder="전화번호를 입력해주세요"
                   className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
-style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                  style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                  required
                 />
               </div>
             </div>
@@ -229,9 +325,13 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">사업자등록번호</label>
                 <input
                   type="text"
-                  defaultValue="000-00-00000"
+                  name="business_number"
+                  value={formData.business_number}
+                  onChange={handleInputChange}
+                  placeholder="사업자등록번호를 입력해주세요"
                   className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
-style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                  style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                  required
                 />
               </div>
               
@@ -240,9 +340,12 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">업종</label>
                 <div className="relative">
                   <select
+                    name="industry"
+                    value={formData.industry}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 pr-10 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent appearance-none text-base"
                     style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
-                    defaultValue=""
+                    required
                   >
                     <option value="" disabled>업종을 선택해주세요</option>
                     <option value="coffee">커피/음료</option>
@@ -267,9 +370,13 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">회사 주소</label>
               <input
                 type="text"
+                name="address"
+                value={formData.address}
+                onChange={handleInputChange}
                 placeholder="회사 주소를 입력해주세요"
-                className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
+                style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                required
               />
             </div>
             
@@ -277,10 +384,14 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
             <div>
                 <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">현재 취급 제품</label>
               <textarea
+                name="current_products"
+                value={formData.current_products}
+                onChange={handleInputChange}
                 placeholder="현재 취급하고 있는 제품들을 입력해주세요"
                 rows={4}
                 className="w-full p-3 border-0 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent resize-vertical text-base"
                 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                required
               />
             </div>
             
@@ -289,9 +400,13 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">주요 타겟 시장</label>
               <input
                 type="text"
+                name="target_market"
+                value={formData.target_market}
+                onChange={handleInputChange}
                 placeholder="주요 타겟 시장을 입력해주세요"
-                className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent"
-style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
+                style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                required
               />
             </div>
             
@@ -300,9 +415,12 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">파트너십 관심 분야</label>
               <div className="relative">
                 <select
-                  className="w-full px-4 py-3 pr-10 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent appearance-none"
+                  name="partnership_interest"
+                  value={formData.partnership_interest}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 pr-10 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent appearance-none text-base"
                   style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
-                  defaultValue=""
+                  required
                 >
                   <option value="" disabled>관심 분야를 선택해주세요</option>
                   <option value="product_supply">제품 공급</option>
@@ -326,6 +444,9 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
             <div>
                 <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">추가 문의사항</label>
               <textarea
+                name="additional_inquiry"
+                value={formData.additional_inquiry}
+                onChange={handleInputChange}
                 placeholder="추가로 문의하실 사항이 있다면 입력해주세요"
                 rows={4}
                 className="w-full p-3 border-0 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent resize-vertical text-base"
@@ -333,22 +454,34 @@ style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
               />
             </div>
             
+            {/* 제출 메시지 */}
+            {submitMessage && (
+              <div className={`text-center py-4 px-6 rounded-lg ${
+                submitMessage.includes('성공') 
+                  ? 'bg-green-100 text-green-800 border border-green-200' 
+                  : 'bg-red-100 text-red-800 border border-red-200'
+              }`}>
+                {submitMessage}
+              </div>
+            )}
+
             {/* 제출 버튼 */}
             <div className="flex justify-center pt-6">
               <button
                 type="submit"
-                className="text-white rounded-lg transition-colors duration-200 font-medium flex items-center justify-center"
+                disabled={isSubmitting}
+                className="text-white rounded-lg transition-colors duration-200 font-medium flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
                 style={{ 
                   width: '240px', 
                   height: '40px', 
-                  backgroundColor: '#443F36', 
+                  backgroundColor: isSubmitting ? '#A2AD71' : '#443F36', 
                   padding: '12px 96px',
                   fontSize: '14px'
                 }}
-                onMouseEnter={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#A2AD71'}
-                onMouseLeave={(e) => (e.target as HTMLButtonElement).style.backgroundColor = '#443F36'}
+                onMouseEnter={(e) => !isSubmitting && ((e.target as HTMLButtonElement).style.backgroundColor = '#A2AD71')}
+                onMouseLeave={(e) => !isSubmitting && ((e.target as HTMLButtonElement).style.backgroundColor = '#443F36')}
               >
-                    Submit
+                {isSubmitting ? '제출 중...' : 'Submit'}
               </button>
             </div>
           </form>
