@@ -10,12 +10,13 @@ import AnimatedFooter from "@/components/AnimatedFooter";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jggoldcompany.com'),
   title: "JG Gold Company - 대체커피 전문 브랜드 | 카페인 프리 커피",
-  description: "JG Gold Company는 해외의 특별한 대체커피 브랜드를 발굴해 한국에 소개하는 회사입니다. 카페인 프리 커피로 새로운 라이프스타일을 제안합니다.",
-  keywords: "대체커피, 카페인프리, 디카페인, 커피, JG Gold, 대체음료, 건강커피",
+  description: "JG Gold Company는 해외의 특별한 대체커피 브랜드를 발굴해 한국에 소개하는 회사입니다. 카페인 프리, 디카페인, 루핀커피, 치커리커피 등 다양한 무카페인 대체커피로 새로운 라이프스타일을 제안합니다. 프랑스 유럽 브랜드의 건강음료와 웰니스음료로 카페인 민감자에게 완벽한 커피 대안을 제공합니다.",
+  keywords: "대체커피, 카페인 프리, 디카페인, 카페인 없는 커피, 루핀커피, 치커리커피, 프랑스 브랜드, 유럽 브랜드, 무카페인, 브랜드 협업, 건강 음료, 웰니스 음료, 카페인 민감자, JG Gold, 대체음료",
   openGraph: {
-    title: "JG Gold Company - 대체커피 전문 브랜드",
-    description: "카페인 프리 커피로 새로운 라이프스타일을 제안하는 JG Gold Company",
+    title: "JG Gold Company - 카페인 없는 커피, 대체커피 전문 프랑스 브랜드",
+    description: "카페인 프리, 디카페인, 루핀커피, 치커리커피 등 다양한 무카페인 대체커피로 새로운 라이프스타일을 제안하는 JG Gold Company. 프랑스 유럽 브랜드의 건강음료와 웰니스음료로 카페인 민감자에게 완벽한 커피 대안을 제공합니다.",
     type: "website",
     locale: "ko_KR",
     siteName: "JG Gold Company",
@@ -24,14 +25,14 @@ export const metadata: Metadata = {
         url: "/1. Home_Landing Hero.png",
         width: 1200,
         height: 630,
-        alt: "JG Gold Company 대체커피",
+        alt: "JG Gold Company 대체커피 - 카페인 프리 커피 전문",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "JG Gold Company - 대체커피 전문 브랜드",
-    description: "카페인 프리 커피로 새로운 라이프스타일을 제안합니다",
+    title: "JG Gold Company - 카페인 없는 커피, 대체커피 전문 프랑스 브랜드",
+    description: "카페인 프리, 디카페인, 루핀커피, 치커리커피 등 무카페인 대체커피로 새로운 라이프스타일을 제안합니다",
     images: ["/1. Home_Landing Hero.png"],
   },
   robots: {
