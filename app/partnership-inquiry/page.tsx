@@ -9,17 +9,10 @@ import { supabase } from "@/lib/supabase";
 
 export default function PartnershipInquiry() {
   const [formData, setFormData] = useState({
-    company_name: '',
-    representative_name: '',
+    name: '',
     email: '',
     phone: '',
-    business_number: '',
-    industry: '',
-    address: '',
-    current_products: '',
-    target_market: '',
-    partnership_interest: '',
-    additional_inquiry: ''
+    inquiry: ''
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -79,17 +72,10 @@ export default function PartnershipInquiry() {
         .from('Inquiry')
         .insert([
           {
-            'Company Name': formData.company_name,
-            'Name': formData.representative_name,
+            'Name': formData.name,
             'Email': formData.email,
             'Phone': formData.phone,
-            'Business Registration Number': formData.business_number,
-            'Business Type': formData.industry,
-            'Address': formData.address,
-            'Current Products': formData.current_products,
-            'Target Market': formData.target_market,
-            'Partnership Part': formData.partnership_interest,
-            'More Inquiry': formData.additional_inquiry
+            'More Inquiry': formData.inquiry
           }
         ]);
 
@@ -104,17 +90,10 @@ export default function PartnershipInquiry() {
       
       // 폼 초기화
       setFormData({
-        company_name: '',
-        representative_name: '',
+        name: '',
         email: '',
         phone: '',
-        business_number: '',
-        industry: '',
-        address: '',
-        current_products: '',
-        target_market: '',
-        partnership_interest: '',
-        additional_inquiry: ''
+        inquiry: ''
       });
 
     } catch (error) {
@@ -291,205 +270,63 @@ export default function PartnershipInquiry() {
           </h2>
           
           <form className="max-w-4xl mx-auto space-y-6" onSubmit={handleSubmit}>
-            {/* 상단 2열 섹션 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-              {/* 회사명 */}
-              <div>
-                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">회사명</label>
-                <input
-                  type="text"
-                  name="company_name"
-                  value={formData.company_name}
-                  onChange={handleInputChange}
-                  placeholder="회사명을 입력해주세요"
-                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
-                  style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
-                  required
-                />
-              </div>
-              
-              {/* 대표자명 */}
-              <div>
-                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">대표자명</label>
-                <input
-                  type="text"
-                  name="representative_name"
-                  value={formData.representative_name}
-                  onChange={handleInputChange}
-                  placeholder="대표자명을 입력해주세요"
-                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
-                  style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
-                  required
-                />
-              </div>
-            </div>
-            
-            {/* 두 번째 2열 섹션 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-              {/* 이메일 */}
-              <div>
-                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">이메일</label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  placeholder="이메일을 입력해주세요"
-                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
-                  style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
-                  required
-                />
-              </div>
-              
-              {/* 전화번호 */}
-              <div>
-                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">전화번호</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  placeholder="전화번호를 입력해주세요"
-                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
-                  style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
-                  required
-                />
-              </div>
-            </div>
-            
-            {/* 세 번째 2열 섹션 */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-              {/* 사업자등록번호 */}
-              <div>
-                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">사업자등록번호</label>
-                <input
-                  type="text"
-                  name="business_number"
-                  value={formData.business_number}
-                  onChange={handleInputChange}
-                  placeholder="사업자등록번호를 입력해주세요"
-                  className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
-                  style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
-                  required
-                />
-              </div>
-              
-              {/* 업종 */}
-              <div>
-                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">업종</label>
-                <div className="relative">
-                  <select
-                    name="industry"
-                    value={formData.industry}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 pr-10 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent appearance-none text-base"
-                    style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
-                    required
-                  >
-                    <option value="" disabled>업종을 선택해주세요</option>
-                    <option value="coffee">커피/음료</option>
-                    <option value="food">식품/식재료</option>
-                    <option value="distribution">유통/도매</option>
-                    <option value="cafe">카페/음식점</option>
-                    <option value="other">기타</option>
-                  </select>
-                  {/* 커스텀 드롭다운 아이콘 */}
-                  <svg
-                    className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
-                    width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden
-                  >
-                    <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.29a.75.75 0 01-.02-1.08z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-            
-            {/* 회사 주소 */}
+            {/* 이름 */}
             <div>
-                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">회사 주소</label>
+              <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">이름</label>
               <input
                 type="text"
-                name="address"
-                value={formData.address}
+                name="name"
+                value={formData.name}
                 onChange={handleInputChange}
-                placeholder="회사 주소를 입력해주세요"
+                placeholder="이름을 입력해주세요"
                 className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
                 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 required
               />
             </div>
             
-            {/* 현재 취급 제품 */}
+            {/* 이메일 */}
             <div>
-                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">현재 취급 제품</label>
-              <textarea
-                name="current_products"
-                value={formData.current_products}
-                onChange={handleInputChange}
-                placeholder="현재 취급하고 있는 제품들을 입력해주세요"
-                rows={4}
-                className="w-full p-3 border-0 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent resize-vertical text-base"
-                style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
-                required
-              />
-            </div>
-            
-            {/* 주요 타겟 시장 */}
-            <div>
-                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">주요 타겟 시장</label>
+              <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">이메일</label>
               <input
-                type="text"
-                name="target_market"
-                value={formData.target_market}
+                type="email"
+                name="email"
+                value={formData.email}
                 onChange={handleInputChange}
-                placeholder="주요 타겟 시장을 입력해주세요"
+                placeholder="이메일을 입력해주세요"
                 className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
                 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 required
               />
             </div>
             
-            {/* 파트너십 관심 분야 */}
+            {/* 전화번호 */}
             <div>
-                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">파트너십 관심 분야</label>
-              <div className="relative">
-                <select
-                  name="partnership_interest"
-                  value={formData.partnership_interest}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 pr-10 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent appearance-none text-base"
-                  style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
-                  required
-                >
-                  <option value="" disabled>관심 분야를 선택해주세요</option>
-                  <option value="product_supply">제품 공급</option>
-                  <option value="distribution">유통 파트너십</option>
-                  <option value="brand_collaboration">브랜드 협업</option>
-                  <option value="technical_cooperation">기술 협력</option>
-                  <option value="overseas_entry">해외 진출</option>
-                  <option value="other">기타</option>
-                </select>
-                {/* 커스텀 드롭다운 아이콘 */}
-                <svg
-                  className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
-                  width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden
-                >
-                  <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.29a.75.75 0 01-.02-1.08z" clipRule="evenodd" />
-                </svg>
-              </div>
+              <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">전화번호</label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                placeholder="전화번호를 입력해주세요"
+                className="w-full px-4 py-3 border-0 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent text-base"
+                style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                required
+              />
             </div>
             
-            {/* 추가 문의사항 */}
+            {/* 문의사항 */}
             <div>
-                <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">추가 문의사항</label>
+              <label className="block text-[0.8rem] md:text-[1rem] leading-[1.2] font-inter mb-2">문의사항</label>
               <textarea
-                name="additional_inquiry"
-                value={formData.additional_inquiry}
+                name="inquiry"
+                value={formData.inquiry}
                 onChange={handleInputChange}
-                placeholder="추가로 문의하실 사항이 있다면 입력해주세요"
-                rows={4}
+                placeholder="문의하실 내용을 입력해주세요"
+                rows={8}
                 className="w-full p-3 border-0 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent resize-vertical text-base"
                 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
+                required
               />
             </div>
             
