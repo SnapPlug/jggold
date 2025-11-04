@@ -242,7 +242,7 @@ export default function About() {
           {/* CI 이미지 */}
           <div className="mb-8">
             <Image
-              src="/3. About_CI.png"
+              src="/3. About_CI_new.png"
               alt="JG Gold Corporate Identity"
               width={1680}
               height={545}

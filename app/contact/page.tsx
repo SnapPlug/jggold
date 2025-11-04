@@ -426,7 +426,7 @@ export default function PartnershipInquiry() {
           x5-video-player-type="h5"
           x5-video-player-fullscreen="false"
         >
-          <source src="/Partership_video.mp4" type="video/mp4" />
+          <source src="/Partership_video_new.mp4" type="video/mp4" />
         </video>
       </div>
           
