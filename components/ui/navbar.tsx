@@ -61,7 +61,7 @@ export function Navbar() {
           "w-full bg-transparent left-1/2 transform -translate-x-1/2",
           // 데스크톱에서만 스크롤 효과 적용
           isScrolled 
-            ? "md:w-[1000px] md:h-[60] md:left-1/2 md:transform md:-translate-x-1/2 md:mt-4 md:rounded-full md:bg-gray-800/85 md:backdrop-blur-[10px] md:shadow-lg md:px-[25px]" 
+            ? "md:w-[1000px] md:h-[60px] md:left-1/2 md:transform md:-translate-x-1/2 md:mt-4 md:rounded-full md:bg-gray-800/85 md:backdrop-blur-[10px] md:shadow-lg md:px-[25px]" 
             : "md:transition-all md:duration-700 md:ease-in-out"
         )}
       >
@@ -69,10 +69,12 @@ export function Navbar() {
           className={cn(
             "mx-auto flex items-center",
             // 모바일에서는 항상 기본 상태 유지 (스크롤 효과 없음)
-            "w-full max-w-content px-3 mobile:px-3 md:px-[60px] md:py-[60px] h-[77px] justify-between",
+            "w-full max-w-content px-3 mobile:px-3 h-[77px] justify-between",
+            // 데스크톱 기본 상태
+            !isScrolled && "md:px-[60px] md:py-[60px]",
             // 데스크톱에서만 스크롤 효과 적용
             isScrolled
-              ? "md:max-w-none md:justify-between md:items-center md:h-[60px] md:transition-all md:duration-700 md:ease-in-out"
+              ? "md:max-w-none md:justify-between md:items-center md:h-[60px] md:px-0 md:py-0 md:transition-all md:duration-700 md:ease-in-out"
               : "md:transition-all md:duration-700 md:ease-in-out"
           )}
         >
@@ -85,7 +87,10 @@ export function Navbar() {
                 width={160}
                 height={30}
                 priority
-                className="h-[20px] w-[160px] object-contain"
+                className={cn(
+                  "object-contain transition-all duration-300",
+                  isScrolled ? "h-[20px] w-[120px]" : "h-[20px] w-[160px]"
+                )}
               />
             </Link>
           </div>
