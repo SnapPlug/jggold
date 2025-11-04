@@ -35,11 +35,11 @@ function AnimatedCounter({ targetValue, label, delay = 0 }: AnimatedFactsProps) 
   }, [targetValue, delay]);
 
   return (
-    <div className="bg-[#443F36] p-[20px] min-h-[106px] md:min-h-[185px]">
-      <div className="font-sentient text-[2rem] md:text-[3rem] leading-[0.9em] tracking-[-0.02em] text-white mb-[10px]">
+    <div className="bg-[#443F36] p-[20px] min-h-[106px] md:min-h-[200px]">
+      <div className="font-sentient text-[2rem] md:text-[56px] leading-[0.9em] tracking-[-0.02em] text-white mb-[10px]">
         {count}
       </div>
-      <p className="font-inter text-[1rem] md:text-[1.4rem] leading-[0.9em] text-white">{label}</p>
+      <p className="font-inter text-[1rem] md:text-[20px] leading-[0.9em] text-white">{label}</p>
     </div>
   );
 }

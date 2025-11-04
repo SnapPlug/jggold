@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function AnimatedCTA() {
   return (
-    <div className="w-full h-[548px] md:h-[580px] relative">
+    <div className="w-full h-[548px] md:h-[820px] relative">
       {/* 배경 이미지 */}
       <div className="absolute inset-0">
         <Image
@@ -17,19 +17,19 @@ export default function AnimatedCTA() {
       
       {/* 오버레이 콘텐츠 */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="w-full px-3 md:px-[30px]">
+        <div className="w-full px-3 md:px-[120px]">
           <div className="max-w-full mx-auto">
             <div className="flex items-center">
               {/* 텍스트 영역 */}
               <div className="text-white">
-                <h2 className="text-[1.2rem] md:text-[1.9rem] leading-[1.7em] mb-[16px]">
+                <h2 className="text-[1.2rem] md:text-[36px] leading-[1.7em] mb-[16px]">
                   JG Gold Company와<br />
                   파트너십을 맺고 싶으신가요?
                 </h2>
                 
                 {/* 프로필 정보 */}
                 <div className="flex items-center mb-[30px]">
-                  <div className="w-12 h-12 mr-4 relative overflow-hidden" style={{ borderRadius: '23px' }}>
+                  <div className="w-[50px] h-[50px] mr-4 relative overflow-hidden" style={{ borderRadius: '23px' }}>
                     <Image
                       src="/2. About_CEO.jpg"
                       alt="CEO Profile"
@@ -38,8 +38,8 @@ export default function AnimatedCTA() {
                     />
                   </div>
                   <div>
-                    <p className="text-white/70 text-[0.8rem] md:text-[1rem] leading-[1.2em] mb-[2px]">Stacy Jung</p>
-                    <p className="text-white/70 text-[0.8rem] md:text-[1rem] leading-[1.2em]">CEO</p>
+                    <p className="text-white/70 text-[0.8rem] md:text-[18px] leading-[1.2em] mb-[2px]">Stacy Jung</p>
+                    <p className="text-white/70 text-[0.8rem] md:text-[18px] leading-[1.2em]">CEO</p>
                   </div>
                 </div>
                 
@@ -52,7 +52,7 @@ export default function AnimatedCTA() {
                     color: '#121212',
                     border: '1px solid #222225',
                     padding: '10px 24px',
-                    fontSize: '0.8rem',
+                    fontSize: '20px',
                     lineHeight: '1.2em'
                   }}
                   onMouseEnter={(e) => {
@@ -64,7 +64,7 @@ export default function AnimatedCTA() {
                     e.currentTarget.style.color = '#121212';
                   }}
                 >
-                  Let's work together
+                  Let's Work Together
                 </a>
               </div>
             </div>

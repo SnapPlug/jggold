@@ -45,7 +45,6 @@ export function Navbar() {
     { label: "Partners", href: "/#partners", number: "02" },
     { label: "Products", href: "/#products", number: "03" },
     { label: "Contact", href: "/contact", number: "04" },
-    { label: "Partnership Inquiry", href: "/partnership-inquiry", number: "05" },
   ];
 
   const socialLinks = [
@@ -62,7 +61,7 @@ export function Navbar() {
           "w-full bg-transparent left-1/2 transform -translate-x-1/2",
           // 데스크톱에서만 스크롤 효과 적용
           isScrolled 
-            ? "md:w-[800px] md:h-[60px] md:left-1/2 md:transform md:-translate-x-1/2 md:mt-4 md:rounded-full md:bg-gray-800/85 md:backdrop-blur-[10px] md:shadow-lg md:px-[25px]" 
+            ? "md:w-[1000px] md:h-[60] md:left-1/2 md:transform md:-translate-x-1/2 md:mt-4 md:rounded-full md:bg-gray-800/85 md:backdrop-blur-[10px] md:shadow-lg md:px-[25px]" 
             : "md:transition-all md:duration-700 md:ease-in-out"
         )}
       >
@@ -70,7 +69,7 @@ export function Navbar() {
           className={cn(
             "mx-auto flex items-center",
             // 모바일에서는 항상 기본 상태 유지 (스크롤 효과 없음)
-            "w-full max-w-content px-3 mobile:px-3 tablet:px-10 desktop:px-[30px] desktop:py-[30px] h-[77px] justify-between",
+            "w-full max-w-content px-3 mobile:px-3 md:px-[60px] md:py-[60px] h-[77px] justify-between",
             // 데스크톱에서만 스크롤 효과 적용
             isScrolled
               ? "md:max-w-none md:justify-between md:items-center md:h-[60px] md:transition-all md:duration-700 md:ease-in-out"
@@ -83,10 +82,10 @@ export function Navbar() {
               <Image
                 src="/JG_Logo.png"
                 alt="JG Logo"
-                width={120}
+                width={160}
                 height={30}
                 priority
-                className="h-[30px] w-[120px] object-contain"
+                className="h-[20px] w-[160px] object-contain"
               />
             </Link>
           </div>
@@ -97,7 +96,7 @@ export function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="font-medium text-white transition-all duration-500 ease-in-out hover:text-gray-300 text-xs"
+                className="font-medium text-white transition-all duration-500 ease-in-out hover:text-gray-300 text-[18px]"
               >
                 {item.label}
               </Link>

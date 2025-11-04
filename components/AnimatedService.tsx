@@ -23,7 +23,7 @@ export default function AnimatedService() {
     },
     {
       image: "/5. Mood_3.png",
-      title: "Experience a flavor deeper than coffee.",
+      title: "Experience a Flavor Deeper Than Coffee.",
       subtitle: "커피보다 더 깊은 풍미를 느끼실 수 있어요."
     }
   ];
@@ -159,7 +159,7 @@ export default function AnimatedService() {
         {slides.map((slide, index) => (
           <motion.div 
             key={index}
-            className="relative w-full h-[80vh] max-w-full mx-auto"
+            className="relative w-full h-[820px] max-w-full mx-auto"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -173,7 +173,7 @@ export default function AnimatedService() {
             />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-[632px] h-[67px] flex items-center justify-center">
-                <h3 className="font-sans text-[1.5rem] leading-[1.4] text-white text-center">
+                <h3 className="font-sans text-[1.9rem] leading-[1.4] text-white text-center">
                   {slide.title} <br />
                   {slide.subtitle}
                 </h3>
