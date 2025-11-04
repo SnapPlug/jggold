@@ -74,8 +74,8 @@ export default function AnimatedFooter() {
               
               {/* 법적 링크들 */}
               <div className="flex justify-center md:justify-end space-x-6 md:space-x-8">
-                <a href="#" className="text-white text-[12px] md:text-[14px] hover:text-white/70 transition-colors">Privacy</a>
-                <a href="#" className="text-white text-[12px] md:text-[14px] hover:text-white/70 transition-colors">Terms of Service</a>
+                <a href="https://www.notion.so/Privacy-Policy-2a0444cd953d807db865e1ff6d9bc787?source=copy_link" target="_blank" rel="noopener noreferrer" className="text-white text-[12px] md:text-[14px] hover:text-white/70 transition-colors">Privacy</a>
+                <a href="https://www.notion.so/Terms-of-Service-2a0444cd953d803dade1fdb882db2b25?source=copy_link" target="_blank" rel="noopener noreferrer" className="text-white text-[12px] md:text-[14px] hover:text-white/70 transition-colors">Terms of Service</a>
                 <div className="relative company-popover-container">
                   <button 
                     onClick={() => setShowCompanyPopover(!showCompanyPopover)}
