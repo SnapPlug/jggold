@@ -61,7 +61,7 @@ export function Navbar() {
           "w-full bg-transparent left-1/2 transform -translate-x-1/2",
           // 데스크톱에서만 스크롤 효과 적용
           isScrolled 
-            ? "md:w-[1000px] md:h-[60px] md:left-1/2 md:transform md:-translate-x-1/2 md:mt-4 md:rounded-full md:bg-gray-800/85 md:backdrop-blur-[10px] md:shadow-lg md:px-[25px]" 
+            ? "md:w-[800px] md:h-[60px] md:left-1/2 md:transform md:-translate-x-1/2 md:mt-4 md:rounded-full md:bg-gray-600/40 md:backdrop-blur-[10px] md:shadow-lg md:px-[25px]" 
             : "md:transition-all md:duration-700 md:ease-in-out"
         )}
       >
