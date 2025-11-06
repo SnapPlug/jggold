@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function AnimatedProducts() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [startX, setStartX] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [clickedProductIndex, setClickedProductIndex] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const products = [
@@ -51,6 +52,11 @@ export default function AnimatedProducts() {
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
+
+  // 슬라이드 변경 시 클릭 상태 초기화
+  useEffect(() => {
+    setClickedProductIndex(null);
+  }, [currentSlide]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     setStartX(e.touches[0].clientX);
@@ -141,13 +147,38 @@ export default function AnimatedProducts() {
             >
               {products.map((product, index) => (
                 <div key={index} className="w-full flex-shrink-0 flex flex-col items-center px-4">
-                  <div className="w-full h-[300px] mb-4 relative overflow-hidden">
+                  <div 
+                    className="w-full h-[300px] mb-4 relative overflow-hidden cursor-pointer"
+                    onClick={() => {
+                      if (!isDragging) {
+                        setClickedProductIndex(clickedProductIndex === index ? null : index);
+                      }
+                    }}
+                  >
                     <Image
                       src={product.image}
                       alt={product.name}
                       fill
                       className="object-contain"
                     />
+                    {/* Favrichon 제품(index 0)에만 오버레이 표시 */}
+                    {index === 0 && clickedProductIndex === index && (
+                      <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center px-4 text-white">
+                        <p className="text-center text-[12px] leading-[1.2em] mb-2">
+                          135년 프랑스 전통과 청정 스위스의 조화
+                        </p>
+                        <p className="text-center text-[12px] leading-[1.2em] mb-4">
+                          가장 완벽한 제로카페인 커피
+                        </p>
+                        <a 
+                          href="#products" 
+                          className="text-white text-[14px] font-medium underline hover:text-gray-300 transition-colors"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          View More +
+                        </a>
+                      </div>
+                    )}
                   </div>
                   <div className="text-center">
                     <h3 className="text-[0.8rem] leading-[1.2em] font-medium mb-2" style={{ color: '#000000' }}>
