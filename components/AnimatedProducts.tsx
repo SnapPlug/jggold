@@ -207,6 +207,22 @@ export default function AnimatedProducts() {
                   e.currentTarget.style.transform = 'scale(1)';
                 }}
               />
+              {/* 호버 시 오버레이 및 텍스트 */}
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center px-4 text-white pointer-events-none">
+                <p className="text-center text-[13px] leading-[1.2em] mb-2">
+                  135년 프랑스 전통과 청정 스위스의 조화
+                </p>
+                <p className="text-center text-[13px] leading-[1.2em] mb-4">
+                  가장 완벽한 제로카페인 커피
+                </p>
+                <a 
+                  href="#products" 
+                  className="text-white text-[16px] font-medium underline pointer-events-auto hover:text-gray-300 transition-colors"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  View More +
+                </a>
+              </div>
             </div>
             <div className="text-center">
               <h3 className="text-[18px] leading-[1.2em] font-medium mb-2" style={{ color: '#000000' }}>
