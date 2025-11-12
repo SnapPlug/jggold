@@ -166,10 +166,15 @@ export default function AnimatedPartners() {
       </div>
       
       {/* 데스크톱: 파트너 그리드 */}
-      <div className="hidden md:grid grid-cols-2 gap-24 px-3 md:px-[120px] mt-[20px] mb-[60px]">
+      <div className="hidden md:grid grid-cols-2 gap-[40px] px-3 md:px-[120px] mt-[20px] mb-[60px]">
         {/* Favrichon */}
-        <div className="h-[570px] relative">
-          <div className="h-[570px] w-full overflow-hidden group cursor-pointer relative">
+        <div className="relative">
+          <div 
+            className="w-full overflow-hidden group cursor-pointer relative"
+            style={{ 
+              aspectRatio: '820/570'
+            }}
+          >
             <Image
               src="/6. Partners_1.png"
               alt="Favrichon Partner"
@@ -196,8 +201,13 @@ export default function AnimatedPartners() {
         </div>
         
         {/* LUPI COFFEE */}
-        <div className="h-[570px] relative">
-          <div className="h-[570px] w-full overflow-hidden group cursor-pointer relative">
+        <div className="relative">
+          <div 
+            className="w-full overflow-hidden group cursor-pointer relative"
+            style={{ 
+              aspectRatio: '820/570'
+            }}
+          >
             <Image
               src="/7. Partners_2.png"
               alt="LUPI COFFEE Partner"
@@ -224,8 +234,13 @@ export default function AnimatedPartners() {
         </div>
         
         {/* Coming Soon 1 */}
-        <div className="h-[570px] relative">
-          <div className="h-[570px] w-full overflow-hidden group cursor-pointer relative">
+        <div className="relative">
+          <div 
+            className="w-full overflow-hidden group cursor-pointer relative"
+            style={{ 
+              aspectRatio: '820/570'
+            }}
+          >
             <Image
               src="/8. Partners_3.png"
               alt="Coming Soon Partner 1"
@@ -251,8 +266,13 @@ export default function AnimatedPartners() {
         </div>
         
         {/* Coming Soon 2 */}
-        <div className="h-[570px] relative">
-          <div className="h-[570px] w-full overflow-hidden group cursor-pointer relative">
+        <div className="relative">
+          <div 
+            className="w-full overflow-hidden group cursor-pointer relative"
+            style={{ 
+              aspectRatio: '820/570'
+            }}
+          >
             <Image
               src="/9. Partners_4.png"
               alt="Coming Soon Partner 2"
