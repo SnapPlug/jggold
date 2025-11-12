@@ -70,59 +70,29 @@ export default function About() {
       </div>
       
       {/* CEO 섹션 */}
-      <div className="w-full h-auto md:h-[649px] bg-white px-[120px] py-[80px]">
-        {/* CEO 섹션 제목 */}
-        <div className="px-3 md:px-[30px] h-auto md:h-[87px] py-4 md:py-0 flex items-center">
-          <h2 className="text-[1.2rem] md:text-[1.9rem] leading-[0.9em]" style={{ color: '#121212' }}>
-            CEO 정경희 Stacy Jung
-          </h2>
-        </div>
-        
-        {/* 모바일 레이아웃 */}
-        <div className="md:hidden flex flex-col gap-6 px-3 py-6">
-          {/* CEO 이미지 */}
-          <div className="relative h-[241px] w-[187.5px] mx-auto">
-            <Image
-              src="/2. About_CEO.png"
-              alt="CEO 정경희 Stacy Jung"
-              fill
-              className="object-cover"
-            />
+      <div className="w-full h-auto md:h-[649px] bg-white py-[80px] md:px-[80px]">
+        <div className="max-w-full mx-auto px-3 md:px-8">
+          {/* CEO 섹션 제목 */}
+          <div className="h-auto md:h-[87px] py-4 md:py-0 flex items-center">
+            <h2 className="text-[1.2rem] md:text-[1.9rem] leading-[0.9em]" style={{ color: '#121212' }}>
+              CEO 정경희 Stacy Jung
+            </h2>
           </div>
           
-          {/* 텍스트 영역 */}
-          <div className="space-y-4 text-gray-800 text-[0.8rem]">
-            <p>
-              창업자인 저의 소개를 먼저 해야할 것 같아요. 저는 커피를 너무 사랑해서 대학에서 커피 바리스타학과를 전공했고, 10년 넘게 공부해 외식경영학 박사가 되었습니다. 커피는 제 삶의 중심이었고, 제 정체성 그 자체였죠.
-            </p>
+          {/* 모바일 레이아웃 */}
+          <div className="md:hidden flex flex-col gap-6 py-6">
+            {/* CEO 이미지 */}
+            <div className="relative h-[241px] w-[187.5px] mx-auto">
+              <Image
+                src="/2. About_CEO.png"
+                alt="CEO 정경희 Stacy Jung"
+                fill
+                className="object-cover"
+              />
+            </div>
             
-            <p>
-              그런데 임신과 출산을 경험하면서 카페인에 점점 민감해졌습니다. 커피를 많이 마시면 심장이 두근거리고, 늦게 마시면 잠을 잘 수 없었어요. 커피를 너무 사랑하는데 마실 수 없다니... 그 괴로움은 말로 다 할 수 없었습니다. 그래서 저는 '나 같은 사람도 즐길 수 있는 커피는 없을까?'라는 질문으로 대체커피를 찾기 시작했습니다. 
-            </p>
-            <p>  
-              한국의 대체커피 시장을 조사하면서 선택지가 너무 적다는 걸 깨달았고, 유럽의 수많은 브랜드에 직접 연락해 샘플을 받아 테이스팅을 시작했어요. 70여 개 브랜드를 컨택하고 34곳 이상과 소통하며, 진짜 '대체'가 아닌 '새로운 커피 문화'를 만들 수 있는 가능성을 발견했습니다. 카페인 0%의 대체커피는 단순한 대안이 아니라, 누구나 커피의 향과 감성을 안전하게 즐길 수 있는 새로운 선택의 시작이라 믿습니다.              </p>
-            
-            <p>
-              JG Gold Company는 커피를 포기하지 않으면서도 자신의 몸과 마음에 맞는 커피를 즐길 수 있도록 세상에 '새로운 선택'을 제안합니다.
-            </p>
-          </div>
-        </div>
-
-        {/* 데스크톱 레이아웃 */}
-        <div className="hidden md:flex gap-[15px] h-[404px] pl-[50px] pr-[57px] pt-[3px]">
-          {/* 왼쪽 CEO 이미지 */}
-          <div className="relative h-[399px] w-[310px]">
-            <Image
-              src="/2. About_CEO.png"
-              alt="CEO 정경희 Stacy Jung"
-              fill
-              className="object-cover"
-            />
-          </div>
-          
-          {/* 오른쪽 텍스트 영역 */}
-          <div className="flex flex-col justify-end h-[404px] pl-8 pr-8 flex-1">
-            <div className="space-y-6 text-gray-700 text-[18px]">
+            {/* 텍스트 영역 */}
+            <div className="space-y-4 text-gray-800 text-[0.8rem]">
               <p>
                 창업자인 저의 소개를 먼저 해야할 것 같아요. 저는 커피를 너무 사랑해서 대학에서 커피 바리스타학과를 전공했고, 10년 넘게 공부해 외식경영학 박사가 되었습니다. 커피는 제 삶의 중심이었고, 제 정체성 그 자체였죠.
               </p>
@@ -138,11 +108,43 @@ export default function About() {
               </p>
             </div>
           </div>
+
+          {/* 데스크톱 레이아웃 */}
+          <div className="hidden md:flex gap-[15px] h-[404px] pt-[3px]">
+            {/* 왼쪽 CEO 이미지 */}
+            <div className="relative h-[399px] w-[310px]">
+              <Image
+                src="/2. About_CEO.png"
+                alt="CEO 정경희 Stacy Jung"
+                fill
+                className="object-cover"
+              />
+            </div>
+            
+            {/* 오른쪽 텍스트 영역 */}
+            <div className="flex flex-col justify-end h-[404px] pl-8 pr-8 flex-1">
+              <div className="space-y-6 text-gray-700 text-[18px]">
+                <p>
+                  창업자인 저의 소개를 먼저 해야할 것 같아요. 저는 커피를 너무 사랑해서 대학에서 커피 바리스타학과를 전공했고, 10년 넘게 공부해 외식경영학 박사가 되었습니다. 커피는 제 삶의 중심이었고, 제 정체성 그 자체였죠.
+                </p>
+                
+                <p>
+                  그런데 임신과 출산을 경험하면서 카페인에 점점 민감해졌습니다. 커피를 많이 마시면 심장이 두근거리고, 늦게 마시면 잠을 잘 수 없었어요. 커피를 너무 사랑하는데 마실 수 없다니... 그 괴로움은 말로 다 할 수 없었습니다. 그래서 저는 '나 같은 사람도 즐길 수 있는 커피는 없을까?'라는 질문으로 대체커피를 찾기 시작했습니다. 
+                </p>
+                <p>  
+                  한국의 대체커피 시장을 조사하면서 선택지가 너무 적다는 걸 깨달았고, 유럽의 수많은 브랜드에 직접 연락해 샘플을 받아 테이스팅을 시작했어요. 70여 개 브랜드를 컨택하고 34곳 이상과 소통하며, 진짜 '대체'가 아닌 '새로운 커피 문화'를 만들 수 있는 가능성을 발견했습니다. 카페인 0%의 대체커피는 단순한 대안이 아니라, 누구나 커피의 향과 감성을 안전하게 즐길 수 있는 새로운 선택의 시작이라 믿습니다.              </p>
+                
+                <p>
+                  JG Gold Company는 커피를 포기하지 않으면서도 자신의 몸과 마음에 맞는 커피를 즐길 수 있도록 세상에 '새로운 선택'을 제안합니다.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
       {/* Facts 섹션 */}
-      <div className="w-full bg-white py-16 md:py-[120px] md:px-[80px]">
+      <div className="w-full bg-white py-[80px] md:px-[80px]">
         <div className="max-w-full mx-auto px-3 md:px-8">
           {/* 상단 구분선 */}
           <div className="w-full h-px bg-black mb-8"></div>
@@ -172,7 +174,7 @@ export default function About() {
       </div>
       
       {/* Certifications & Credentials 섹션 */}
-      <div className="w-full bg-white py-16 md:py-[120px] md:px-[80px]">
+      <div className="w-full bg-white py-[80px] md:px-[80px]">
         <div className="max-w-full mx-auto px-3 md:px-8">
                       {/* 상단 구분선 */}
           <div className="w-full h-px bg-black mb-8"></div>
@@ -230,7 +232,7 @@ export default function About() {
       </div>
       
       {/* CI 섹션 */}
-      <div className="w-full bg-white py-16 md:py-[120px] md:px-[80px]">
+      <div className="w-full bg-white py-[80px] md:px-[80px]">
         <div className="max-w-full mx-auto px-3 md:px-8">
           {/* 상단 구분선 */}
           <div className="w-full h-px bg-black mb-8"></div>
