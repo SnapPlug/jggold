@@ -19,11 +19,19 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(window.scrollY > 100);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -59,10 +67,11 @@ export function Navbar() {
           "fixed top-0 z-50",
           // 모바일에서는 항상 기본 상태 유지 (스크롤 효과 없음)
           "w-full bg-transparent left-1/2 transform -translate-x-1/2",
-          // 데스크톱에서만 스크롤 효과 적용
+          // 데스크톱에서만 스크롤 효과 적용 - 부드러운 애니메이션을 위해 항상 transition 적용
+          "md:transition-all md:duration-1000 md:ease-[cubic-bezier(0.4,0,0.2,1)]",
           isScrolled 
-            ? "md:w-[800px] md:h-[60px] md:left-1/2 md:transform md:-translate-x-1/2 md:mt-4 md:rounded-full md:bg-gray-600/40 md:backdrop-blur-[10px] md:shadow-lg md:px-[25px]" 
-            : "md:transition-all md:duration-700 md:ease-in-out"
+            ? "md:w-[800px] md:h-[60px] md:left-1/2 md:transform md:-translate-x-1/2 md:mt-4 md:rounded-full md:bg-[rgba(33,33,33,0.85)] md:backdrop-blur-[10px] md:shadow-lg md:px-[25px]" 
+            : ""
         )}
       >
         <div 
@@ -70,12 +79,12 @@ export function Navbar() {
             "mx-auto flex items-center",
             // 모바일에서는 항상 기본 상태 유지 (스크롤 효과 없음)
             "w-full max-w-content px-3 mobile:px-3 h-[77px] justify-between",
+            // 데스크톱에서 부드러운 애니메이션을 위해 항상 transition 적용
+            "md:transition-all md:duration-1000 md:ease-[cubic-bezier(0.4,0,0.2,1)]",
             // 데스크톱 기본 상태
             !isScrolled && "md:px-[60px] md:py-[60px]",
             // 데스크톱에서만 스크롤 효과 적용
-            isScrolled
-              ? "md:max-w-none md:justify-between md:items-center md:h-[60px] md:px-0 md:py-0 md:transition-all md:duration-700 md:ease-in-out"
-              : "md:transition-all md:duration-700 md:ease-in-out"
+            isScrolled && "md:max-w-none md:justify-between md:items-center md:h-[60px] md:px-0 md:py-0"
           )}
         >
           {/* 로고 영역 */}
@@ -88,7 +97,7 @@ export function Navbar() {
                 height={30}
                 priority
                 className={cn(
-                  "object-contain transition-all duration-300",
+                  "object-contain transition-all duration-1000 ease-[cubic-bezier(0.4,0,0.2,1)]",
                   isScrolled ? "h-[20px] w-[120px]" : "h-[20px] w-[160px]"
                 )}
               />

@@ -113,16 +113,33 @@ export default function PartnershipInquiry() {
       <Navbar />
       
       {/* Partnership Inquiry 히어로 섹션 */}
-      <div className="w-full h-[400px] md:h-[820px] relative overflow-hidden">
-        <Image
-          src="/1. Partnership Inquiry_Home.png"
-          alt="Partnership Inquiry Hero Background"
-          fill
-          className="object-cover object-center"
+      <div className="w-full h-[820px] relative overflow-hidden">
+        <video
+          className="w-full h-full object-cover object-center"
+          autoPlay
+          muted
+          loop
+          playsInline
+          controls={false}
+          preload="auto"
+          webkit-playsinline="true"
+          x5-playsinline="true"
+          x5-video-player-type="h5"
+          x5-video-player-fullscreen="false"
+        >
+          <source src="/Partnership_video_new.mp4" type="video/mp4" />
+        </video>
+        
+        {/* 아래쪽 어두운 그라데이션 오버레이 */}
+        <div 
+          className="absolute inset-0 pointer-events-none z-10"
+          style={{
+            background: 'linear-gradient(to top, rgba(0, 0, 0, 0.3) 0%, transparent 100%)'
+          }}
         />
         
         {/* 오버레이 텍스트 */}
-        <div className="absolute inset-0 flex items-end justify-between px-3 md:px-[97px] pb-[40px] md:pb-[66px]">
+        <div className="absolute inset-0 flex items-end justify-between px-3 md:px-[97px] pb-[40px] md:pb-[66px] z-20">
           {/* 왼쪽: 메시지 */}
           <div>
             <p className="text-[1.0rem] md:text-[28px] leading-[1.4em] text-white font-inter">
@@ -134,23 +151,35 @@ export default function PartnershipInquiry() {
           
           {/* 오른쪽: 연락처 정보 */}
           <div className="hidden md:block text-white font-inter">
-            <div className="space-y-2 text-[20px] leading-[1.4em]">
-              <div>T +82 70-7633-9525</div>
-              <div>E stacyjung@jggoldcompany.com</div>
-              <div>F 0504-045-9525</div>
-              <div className="max-w-[400px]">A 1404, 24, Simin-ro, Uijeongbu-si, Gyeonggi-do, Republic of Korea 11649</div>
+            <div className="space-y-[20px] text-[20px] leading-[1.4em]">
+              <div className="flex items-start gap-2">
+                <span className="font-semibold flex-shrink-0">T</span>
+                <span className="font-normal">+82 70-7633-9525</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold flex-shrink-0">E</span>
+                <span className="font-normal">stacyjung@jggoldcompany.com</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-semibold flex-shrink-0">F</span>
+                <span className="font-normal">0504-045-9525</span>
+              </div>
+              <div className="flex items-start gap-2 max-w-[400px]">
+                <span className="font-semibold flex-shrink-0">A</span>
+                <span className="font-normal">1404, 24, Simin-ro, Uijeongbu-si, Gyeonggi-do, Republic of Korea 11649</span>
+              </div>
+            </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      
+
       {/* Partnership Benefit 섹션 */}
       <div className="w-full py-16 md:px-[80px] md:py-[120px]" style={{ backgroundColor: '#F8F8F6' }} >
         <div className="max-w-full mx-auto px-3 md:px-8">
 
           <h2 className="text-[1.2rem] md:text-[1.9rem] leading-[0.9em] mb-8 md:mb-16 text-center" style={{ color: '#121212' }}>
             Partnership Benefit
-          </h2>
+              </h2>
           
           {/* 모바일 Partnership Benefit 이미지 그리드 */}
           <div className="md:hidden grid grid-cols-1 gap-2 justify-center place-items-center">
@@ -241,9 +270,9 @@ export default function PartnershipInquiry() {
                   <h3 className="text-[1.9rem] leading-[1.2em] text-white font-bold mb-[26px]">품질 보증</h3>
                   <p className="text-[1rem] leading-[1.2em] text-white">130개 브랜드 리서치와 42종 시음을 통해 검증된<br />최고 품질의 제품을 안정적으로 공급받을 수 있습니다.</p>
                 </div>
+                </div>
               </div>
-            </div>
-            
+              
             {/* 두 번째 이미지 */}
             <div
               className="relative cursor-pointer overflow-hidden bg-gray-200 w-full h-[520px]"
@@ -374,8 +403,8 @@ export default function PartnershipInquiry() {
                 className="w-full p-3 border-0 rounded-[10px] focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent resize-vertical text-base"
                 style={{ backgroundColor: '#FFFFFF', color: '#999999' }}
                 required
-              />
-            </div>
+            />
+          </div>
             
             {/* 제출 메시지 */}
             {submitMessage && (
@@ -411,25 +440,7 @@ export default function PartnershipInquiry() {
         </div>
       </div>
 
-      {/* 비디오 섹션 */}
-      <div className="w-full h-[300px] md:h-[675px] relative overflow-hidden">
-        <video
-          className="w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-          controls={false}
-          preload="auto"
-          webkit-playsinline="true"
-          x5-playsinline="true"
-          x5-video-player-type="h5"
-          x5-video-player-fullscreen="false"
-        >
-          <source src="/Partnership_video_new.mp4" type="video/mp4" />
-        </video>
-      </div>
-          
+      
       {/* Footer 섹션 */}
       <AnimatedFooter />
     </div>
