@@ -247,7 +247,9 @@ export default function AnimatedProducts() {
                   가장 완벽한 제로카페인 커피
                 </p>
                 <a 
-                  href="#products" 
+                  href="https://smartstore.naver.com/onnul_party/products/12585740971"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-white text-[16px] font-medium underline pointer-events-auto hover:text-gray-300 transition-colors"
                   onClick={(e) => e.stopPropagation()}
                 >
