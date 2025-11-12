@@ -112,7 +112,7 @@ export default function Home() {
       </div>
       
       {/* About 섹션 */}
-      <div className="h-[591px] md:h-[960px] w-full mx-auto bg-white dark:bg-black">
+      <div className="h-[591px] md:min-h-[960px] w-full mx-auto bg-white dark:bg-black">
         {/* 모바일: 단일 컬럼 레이아웃 (배경 이미지 + 오버레이 텍스트) */}
         <div className="md:hidden relative h-full">
           {/* 배경 이미지 */}
@@ -165,10 +165,10 @@ export default function Home() {
         </div>
 
         {/* 데스크톱: 기존 2컬럼 레이아웃 */}
-        <div className="hidden md:grid lg:grid-cols-2 gap-0 h-full">
+        <div className="hidden md:grid lg:grid-cols-2 gap-0 min-h-[960px]">
           {/* 왼쪽 텍스트 영역 */}
-          <div className="flex flex-col justify-center pt-[30px] px-3 md:px-[82px] h-[575px]">
-            <div className="w-[full] h-[269px]">
+          <div className="flex flex-col justify-center py-[30px] px-3 md:px-[82px]">
+            <div className="w-full">
               <h2 className="font-sentient text-[2.3rem] leading-[1.2] font-normal text-black mb-[100px]">
                 Alternative Coffee,<br />
                 The Dawn of a New Lifestyle
@@ -197,7 +197,7 @@ export default function Home() {
           </div>
           
           {/* 오른쪽 이미지 영역 */}
-          <div className="relative">
+          <div className="relative min-h-[960px]">
             <Image
               src="/2. Home_Splitted Hero.png"
               alt="About JG Gold - Coffee and Lifestyle"
