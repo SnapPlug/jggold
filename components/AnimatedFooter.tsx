@@ -39,7 +39,6 @@ export default function AnimatedFooter() {
                 <li><a href="/#partners" className="text-white text-[0.8rem] md:text-[1rem] leading-[19px] hover:text-white/70 transition-colors">Partners</a></li>
                 <li><a href="/#products" className="text-white text-[0.8rem] md:text-[1rem] leading-[19px] hover:text-white/70 transition-colors">Products</a></li>
                 <li><a href="/contact" className="text-white text-[0.8rem] md:text-[1rem] leading-[19px] hover:text-white/70 transition-colors">Contact</a></li>
-                <li><a href="/partnership-inquiry" className="text-white text-[0.8rem] md:text-[1rem] leading-[19px] hover:text-white/70 transition-colors">Partnership Inquiry</a></li>
               </ul>
             </div>
             
@@ -86,9 +85,9 @@ export default function AnimatedFooter() {
                   
                   {/* 팝오버 */}
                   {showCompanyPopover && (
-                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-black border border-gray-600 rounded-lg p-4 shadow-lg z-50 min-w-[200px]">
+                    <div className="absolute bottom-full right-0 mb-2 bg-black border border-gray-600 rounded-lg p-4 shadow-lg z-50 min-w-[200px] max-w-[calc(100vw-32px)]">
                       {/* 화살표 */}
-                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black"></div>
+                      <div className="absolute top-full right-4 transform translate-x-0 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-black"></div>
                       
                       {/* 사업자 정보 */}
                       <div className="text-white text-sm space-y-1">

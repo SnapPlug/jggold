@@ -222,7 +222,7 @@ export default function AnimatedProducts() {
           <div className="flex flex-col items-center">
             <div className="w-full h-[495px] mb-4 relative overflow-hidden group cursor-pointer">
               <Image
-                src="/10. Products_1.png"
+                src="/10. Products_1_New.png"
                 alt="Favrichon Chicory Coffee"
                 fill
                 className="object-contain transition-all duration-500 group-hover:brightness-110"
