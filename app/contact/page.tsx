@@ -69,26 +69,123 @@ export default function PartnershipInquiry() {
         }
       }
       
-      // 실제 테이블 스키마에 맞는 컬럼명으로 데이터 삽입
-      const { data, error } = await supabase
-        .from('Inquiry')
-        .insert([
-          {
-            'Name': formData.name,
-            'Email': formData.email,
-            'Phone': formData.phone,
-            'More Inquiry': formData.inquiry
+      // 브라우저 호환 UUID 생성
+      const debugId = typeof crypto !== 'undefined' && crypto.randomUUID 
+        ? crypto.randomUUID() 
+        : `${Date.now()}-${Math.random().toString(36).substring(2, 15)}`;
+      const context = 'PartnershipInquiry#handleSubmit';
+
+      // 1. Supabase에 데이터 저장 (선택사항 - 실패해도 메일 전송은 계속)
+      console.log(`[INFO][debugId=${debugId}] [${context}] Attempting to save to Supabase...`);
+      
+      let supabaseError: Error | null = null;
+      let supabaseSuccess = false;
+      
+      try {
+        // Supabase 클라이언트가 제대로 초기화되었는지 확인
+        if (!supabase) {
+          console.warn(`[WARN][debugId=${debugId}] [${context}] Supabase client is not initialized`);
+          supabaseError = new Error('Supabase 클라이언트가 초기화되지 않았습니다');
+        } else {
+          const { data, error } = await supabase
+            .from('Inquiry')
+            .insert([
+              {
+                'Name': formData.name,
+                'Email': formData.email,
+                'Phone': formData.phone,
+                'More Inquiry': formData.inquiry
+              }
+            ]);
+
+          console.log(`[INFO][debugId=${debugId}] [${context}] Supabase response:`, { 
+            data, 
+            error,
+            hasData: !!data,
+            errorCode: error?.code,
+            errorMessage: error?.message,
+            errorDetails: error?.details,
+            errorHint: error?.hint
+          });
+
+          if (error) {
+            console.error(`[ERROR][debugId=${debugId}] [${context}] Supabase error details:`, {
+              code: error.code,
+              message: error.message,
+              details: error.details,
+              hint: error.hint
+            });
+            supabaseError = new Error(`데이터베이스 오류: ${error.message || error.code || '알 수 없는 오류'}`);
+          } else {
+            supabaseSuccess = true;
+            console.log(`[INFO][debugId=${debugId}] [${context}] Supabase save successful`);
           }
-        ]);
-
-      console.log('Supabase response:', { data, error });
-
-      if (error) {
-        console.error('Supabase error details:', error);
-        throw new Error(`데이터베이스 오류: ${error.message}`);
+        }
+      } catch (err) {
+        console.error(`[ERROR][debugId=${debugId}] [${context}] Supabase request exception:`, {
+          error: err,
+          message: err instanceof Error ? err.message : '알 수 없는 오류',
+          stack: err instanceof Error ? err.stack : undefined
+        });
+        const errorMessage = err instanceof Error ? err.message : '알 수 없는 오류';
+        supabaseError = new Error(`데이터베이스 연결 오류: ${errorMessage}`);
       }
 
-      setSubmitMessage('문의가 성공적으로 제출되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+      // Supabase 저장 실패 시에도 메일은 전송 시도 (데이터 백업)
+      if (supabaseError) {
+        console.warn(`[WARN][debugId=${debugId}] [${context}] Supabase save failed, but continuing with email send`);
+      }
+
+      // 2. SMTP를 통해 관리자에게 메일 전송
+      console.log(`[INFO][debugId=${debugId}] [${context}] Sending email to admin...`);
+      
+      let emailError: Error | null = null;
+      
+      try {
+        const emailResponse = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            inquiry: formData.inquiry,
+          }),
+        });
+
+        const emailResult = await emailResponse.json();
+
+        if (!emailResponse.ok) {
+          console.error(`[ERROR][debugId=${debugId}] [${context}] Email sending failed:`, emailResult);
+          emailError = new Error(`메일 전송 실패: ${emailResult.message || '알 수 없는 오류'}`);
+        } else {
+          console.log(`[INFO][debugId=${debugId}] [${context}] Email sent successfully`);
+        }
+      } catch (err) {
+        console.error(`[ERROR][debugId=${debugId}] [${context}] Failed to send email:`, err);
+        const errorMessage = err instanceof Error ? err.message : '알 수 없는 오류';
+        emailError = new Error(`메일 전송 오류: ${errorMessage}`);
+      }
+
+      // 결과 메시지 설정
+      if (emailError) {
+        // 메일 전송 실패 (가장 중요)
+        if (supabaseSuccess) {
+          setSubmitMessage('문의가 저장되었지만 메일 전송에 실패했습니다. 관리자에게 직접 연락해주세요.');
+        } else {
+          setSubmitMessage('문의 제출에 실패했습니다. 잠시 후 다시 시도해주세요.');
+        }
+        return;
+      } else if (supabaseError) {
+        // Supabase만 실패 (메일은 성공) - 메일이 전송되었으므로 성공으로 처리
+        console.warn(`[WARN][debugId=${debugId}] [${context}] Supabase save failed but email sent successfully`);
+        setSubmitMessage('문의가 성공적으로 제출되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+      } else {
+        // 둘 다 성공
+        setSubmitMessage('문의가 성공적으로 제출되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+      }
       
       // 폼 초기화
       setFormData({
