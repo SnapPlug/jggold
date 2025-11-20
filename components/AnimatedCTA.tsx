@@ -45,7 +45,7 @@ export default function AnimatedCTA() {
                 
                 {/* CTA 버튼 */}
                 <a 
-                  href="/partnership-inquiry"
+                  href="/contact"
                   className="font-medium transition-colors duration-300 inline-block"
                   style={{
                     backgroundColor: '#f8f8f6',

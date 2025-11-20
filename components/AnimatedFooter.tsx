@@ -46,8 +46,26 @@ export default function AnimatedFooter() {
             <div className="h-[194px] py-[47px] w-[120px] md:w-auto">
               <h3 className="text-[#f5f5f5]/40 text-[0.8rem] md:text-[1rem] leading-[19px] font-medium mb-[10px]">Socials</h3>
               <ul className="space-y-[10px]">
-                <li><a href="#" className="text-white text-[0.8rem] md:text-[1rem] leading-[19px] hover:text-white/70 transition-colors">Instagram</a></li>
-                <li><a href="#" className="text-white text-[0.8rem] md:text-[1rem] leading-[19px] hover:text-white/70 transition-colors">Thread</a></li>
+                <li>
+                  <a
+                    href="https://www.instagram.com/jung.kh_?igsh=cXdnNGM0Ymp2ZnFp"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white text-[0.8rem] md:text-[1rem] leading-[19px] hover:text-white/70 transition-colors"
+                  >
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.threads.com/@jung.kh_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white text-[0.8rem] md:text-[1rem] leading-[19px] hover:text-white/70 transition-colors"
+                  >
+                    Thread
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
